@@ -855,6 +855,7 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
     struct Configuration: Equatable {
         let title: String
         let subtitle: String?
+        let count: Int
         let actionsEnabled: Bool
         let canRemove: Bool
     }
@@ -868,8 +869,10 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
     }
 
     private let titleLabel = SileoLabelView()
+    private let headingStackView = UIStackView()
     private let textStackView = UIStackView()
     private let subtitleLabel = UILabel()
+    private let countLabel = UILabel()
     private let actionsRowsStackView = UIStackView()
     private let topActionsStackView = UIStackView()
     private let middleActionsStackView = UIStackView()
@@ -890,7 +893,7 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
 
         contentView.preservesSuperviewLayoutMargins = true
         contentView.insetsLayoutMarginsFromSafeArea = true
-        contentView.layoutMargins = UIEdgeInsets(top: 16, left: contentView.layoutMargins.left, bottom: 8, right: contentView.layoutMargins.right)
+        contentView.layoutMargins = UIEdgeInsets(top: 14, left: contentView.layoutMargins.left, bottom: 10, right: contentView.layoutMargins.right)
         backgroundView = UIView()
         backgroundView?.backgroundColor = .clear
         textLabel?.isHidden = true
@@ -900,26 +903,47 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         contentStackView.axis = .vertical
         contentStackView.alignment = .fill
-        contentStackView.spacing = 10
+        contentStackView.spacing = 12
+
+        headingStackView.translatesAutoresizingMaskIntoConstraints = false
+        headingStackView.axis = .horizontal
+        headingStackView.alignment = .top
+        headingStackView.spacing = 10
 
         textStackView.translatesAutoresizingMaskIntoConstraints = false
         textStackView.axis = .vertical
         textStackView.alignment = .fill
-        textStackView.spacing = 4
+        textStackView.spacing = 3
+        textStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
+        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.numberOfLines = 0
         subtitleLabel.lineBreakMode = .byWordWrapping
-        subtitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         subtitleLabel.textColor = .secondaryLabel
         subtitleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         subtitleLabel.isHidden = true
+
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        countLabel.textAlignment = .center
+        countLabel.textColor = .secondaryLabel
+        countLabel.backgroundColor = UIColor.tintColor.withAlphaComponent(0.10)
+        countLabel.layer.borderWidth = 1
+        countLabel.layer.borderColor = UIColor.tintColor.withAlphaComponent(0.18).cgColor
+        countLabel.layer.cornerRadius = 11
+        countLabel.clipsToBounds = true
+        countLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        countLabel.setContentHuggingPriority(.required, for: .horizontal)
+        if #available(iOS 13.0, *) {
+            countLabel.layer.cornerCurve = .continuous
+        }
 
         actionsRowsStackView.translatesAutoresizingMaskIntoConstraints = false
         actionsRowsStackView.axis = .vertical
@@ -937,17 +961,22 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
 
         configureActionButton(enableButton,
                               title: String(localizationKey: "Enable"),
+                              symbolName: "checkmark.circle",
                               selector: #selector(enableButtonTapped))
         configureActionButton(refreshButton,
                               title: String(localizationKey: "Refresh"),
+                              symbolName: "arrow.clockwise",
                               selector: #selector(refreshButtonTapped))
         configureActionButton(removeButton,
                               title: String(localizationKey: "Remove"),
+                              symbolName: "trash",
                               selector: #selector(removeButtonTapped))
 
         textStackView.addArrangedSubview(titleLabel)
         textStackView.addArrangedSubview(subtitleLabel)
-        contentStackView.addArrangedSubview(textStackView)
+        headingStackView.addArrangedSubview(textStackView)
+        headingStackView.addArrangedSubview(countLabel)
+        contentStackView.addArrangedSubview(headingStackView)
         contentStackView.addArrangedSubview(actionsRowsStackView)
         contentView.addSubview(contentStackView)
 
@@ -955,7 +984,9 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
             contentStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
             contentStackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             contentStackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            countLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
+            countLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 32)
         ])
 
         applyActionsLayout(.singleRow)
@@ -975,6 +1006,7 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
         currentConfiguration = nil
         titleLabel.text = nil
         subtitleLabel.text = nil
+        countLabel.text = nil
         subtitleLabel.isHidden = true
     }
 
@@ -1024,7 +1056,8 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
         let previousConfiguration = currentConfiguration
         currentConfiguration = configuration
         if previousConfiguration?.title != configuration.title ||
-            previousConfiguration?.subtitle != configuration.subtitle {
+            previousConfiguration?.subtitle != configuration.subtitle ||
+            previousConfiguration?.count != configuration.count {
             updateTextLabels(configuration: configuration)
             setNeedsLayout()
         }
@@ -1039,21 +1072,27 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
             removeButton.isEnabled = removeButtonEnabled
         }
         updateActionButtonStyles()
-        accessibilityLabel = [configuration.title, configuration.subtitle]
-            .compactMap { $0 }
-            .joined(separator: ", ")
+        var accessibilityParts = [configuration.title, "\(configuration.count)"]
+        if let subtitle = configuration.subtitle {
+            accessibilityParts.insert(subtitle, at: 1)
+        }
+        accessibilityLabel = accessibilityParts.joined(separator: ", ")
     }
 
-    private func configureActionButton(_ button: UIButton, title: String, selector: Selector) {
+    private func configureActionButton(_ button: UIButton, title: String, symbolName: String, selector: Selector) {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(title, for: .normal)
+        button.setImage(UIImage(systemNameOrNil: symbolName)?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.minimumScaleFactor = 0.8
         button.titleLabel?.lineBreakMode = .byTruncatingTail
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -2, bottom: 0, right: 6)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: -2)
+        button.imageView?.contentMode = .scaleAspectFit
         button.clipsToBounds = true
-        button.layer.cornerRadius = 12
+        button.layer.cornerRadius = 11
         if #available(iOS 13.0, *) {
             button.layer.cornerCurve = .continuous
         }
@@ -1063,6 +1102,8 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
 
     private func updateTextLabels(configuration: Configuration) {
         titleLabel.text = configuration.title
+        countLabel.text = "\(configuration.count)"
+        updateCountLabelStyle()
         if let subtitle = configuration.subtitle, !subtitle.isEmpty {
             subtitleLabel.text = subtitle
             subtitleLabel.isHidden = false
@@ -1083,7 +1124,13 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
     }
 
     private func updateActionButtonStyles() {
+        updateCountLabelStyle()
         [enableButton, refreshButton, removeButton].forEach(updateActionButtonStyle)
+    }
+
+    private func updateCountLabelStyle() {
+        countLabel.backgroundColor = UIColor.tintColor.withAlphaComponent(0.10)
+        countLabel.layer.borderColor = UIColor.tintColor.withAlphaComponent(0.18).cgColor
     }
 
     private func updateActionButtonStyle(_ button: UIButton) {
@@ -1093,6 +1140,7 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
         button.layer.borderWidth = 1
         button.layer.borderColor = (isEnabled ? baseColor.withAlphaComponent(0.24) : UIColor.separator.withAlphaComponent(0.35)).cgColor
         button.setTitleColor(isEnabled ? baseColor : UIColor.secondaryLabel, for: .normal)
+        button.tintColor = isEnabled ? baseColor : UIColor.secondaryLabel
         button.alpha = isEnabled ? 1 : 0.82
     }
 
@@ -1175,6 +1223,145 @@ final class DisabledSourcesSectionHeaderView: UITableViewHeaderFooterView {
         }
         applyActionsLayout(preferredMode)
         setNeedsLayout()
+    }
+}
+
+final class DisabledSourceTableViewCell: UITableViewCell {
+    static let reuseIdentifier = "DisabledSourceTableViewCell"
+
+    private let titleLabel = SileoLabelView()
+    private let urlLabel = UILabel()
+    private let textStackView = UIStackView()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        backgroundColor = .clear
+        selectedBackgroundView = SileoSelectionView(frame: .zero)
+        selectionStyle = .none
+        accessoryType = .none
+
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        titleLabel.numberOfLines = 1
+        titleLabel.lineBreakMode = .byTruncatingTail
+        titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
+        urlLabel.translatesAutoresizingMaskIntoConstraints = false
+        urlLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        urlLabel.textColor = UIColor(red: 145.0/255.0, green: 155.0/255.0, blue: 162.0/255.0, alpha: 1)
+        urlLabel.numberOfLines = 1
+        urlLabel.lineBreakMode = .byTruncatingMiddle
+        urlLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
+        textStackView.translatesAutoresizingMaskIntoConstraints = false
+        textStackView.axis = .vertical
+        textStackView.alignment = .leading
+        textStackView.spacing = 3
+        textStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        textStackView.addArrangedSubview(titleLabel)
+        textStackView.addArrangedSubview(urlLabel)
+
+        contentView.addSubview(textStackView)
+
+        NSLayoutConstraint.activate([
+            textStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 9),
+            textStackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            textStackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            textStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -9),
+
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: textStackView.trailingAnchor),
+            urlLabel.trailingAnchor.constraint(lessThanOrEqualTo: textStackView.trailingAnchor)
+        ])
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        urlLabel.text = nil
+        urlLabel.isHidden = false
+    }
+
+    func configure(title: String, url: String?) {
+        titleLabel.text = title
+        urlLabel.text = url
+        urlLabel.isHidden = url?.isEmpty ?? true
+        accessibilityLabel = [title, url].compactMap { $0 }.joined(separator: ", ")
+    }
+}
+
+final class DisabledSourcesEmptyTableViewCell: UITableViewCell {
+    static let reuseIdentifier = "DisabledSourcesEmptyTableViewCell"
+
+    private let iconBackgroundView = UIView()
+    private let iconView = UIImageView(image: UIImage(systemNameOrNil: "checkmark.circle"))
+    private let titleLabel = SileoLabelView()
+    private let contentStackView = UIStackView()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        backgroundColor = .clear
+        selectionStyle = .none
+        accessoryType = .none
+
+        iconBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        iconBackgroundView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.12)
+        iconBackgroundView.layer.cornerRadius = 24
+        iconBackgroundView.clipsToBounds = true
+        if #available(iOS 13.0, *) {
+            iconBackgroundView.layer.cornerCurve = .continuous
+        }
+
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.tintColor = .systemGreen
+        iconView.contentMode = .scaleAspectFit
+
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentStackView.axis = .vertical
+        contentStackView.alignment = .center
+        contentStackView.spacing = 12
+        contentStackView.addArrangedSubview(iconBackgroundView)
+        contentStackView.addArrangedSubview(titleLabel)
+
+        iconBackgroundView.addSubview(iconView)
+        contentView.addSubview(contentStackView)
+
+        NSLayoutConstraint.activate([
+            iconBackgroundView.widthAnchor.constraint(equalToConstant: 48),
+            iconBackgroundView.heightAnchor.constraint(equalToConstant: 48),
+            iconView.centerXAnchor.constraint(equalTo: iconBackgroundView.centerXAnchor),
+            iconView.centerYAnchor.constraint(equalTo: iconBackgroundView.centerYAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 24),
+            iconView.heightAnchor.constraint(equalToConstant: 24),
+
+            contentStackView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.layoutMarginsGuide.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.layoutMarginsGuide.trailingAnchor),
+            contentStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            contentStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            contentStackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 36),
+            contentStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -36)
+        ])
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(title: String) {
+        titleLabel.text = title
+        accessibilityLabel = title
     }
 }
 
@@ -1272,6 +1459,7 @@ final class DisabledSourcesViewController: BaseSettingsViewController {
         let isRefreshing = activeRefreshSectionID == section.id
         return DisabledSourcesSectionHeaderView.Configuration(title: section.title,
                                                              subtitle: section.subtitle,
+                                                             count: section.repos.count,
                                                              actionsEnabled: !isRefreshing,
                                                              canRemove: section.repos.contains(where: canRemove))
     }
@@ -1443,26 +1631,6 @@ final class DisabledSourcesViewController: BaseSettingsViewController {
         repo.repoName.isEmpty ? repo.displayURL : repo.displayName
     }
 
-    private func detailText(state: RepoManager.RepoRefreshState) -> String {
-        if state.isManualDisabled {
-            return String(localizationKey: "Source_Disabled_Manual")
-        }
-        if state.isTimeoutAutoDisabled {
-            let threshold = max(1, RepoRefreshSettings.autoDisableAfterTimeouts)
-            let timeoutCount = state.consecutiveTimeoutCount > 0 ? state.consecutiveTimeoutCount : threshold
-            return String(format: String(localizationKey: "Source_Disabled_AutoTimeout"), timeoutCount)
-        }
-        if state.isHTTPErrorAutoDisabled {
-            let threshold = max(1, RepoRefreshSettings.autoDisableAfterHTTPErrors)
-            let errorCount = state.consecutiveHTTPErrorCount > 0 ? state.consecutiveHTTPErrorCount : threshold
-            if let statusCode = state.lastHTTPStatusCode {
-                return String(format: String(localizationKey: "Source_Disabled_AutoHTTPStatus"), errorCount, statusCode)
-            }
-            return String(format: String(localizationKey: "Source_Disabled_AutoHTTPStatus_Generic"), errorCount)
-        }
-        return state.lastFailureReason ?? String(localizationKey: "Source_Disabled_Manual")
-    }
-
     private func repo(at indexPath: IndexPath) -> Repo? {
         guard let section = section(at: indexPath.section),
               section.repos.indices.contains(indexPath.row) else {
@@ -1563,9 +1731,63 @@ final class DisabledSourcesViewController: BaseSettingsViewController {
         }
     }
 
+    private func enableRepo(_ repo: Repo, inSectionID sectionID: String?) {
+        guard !DownloadManager.shared.queueRunning else {
+            TabBarController.singleton?.presentPopupController()
+            return
+        }
+        RepoManager.shared.enableRepo(repo)
+        reloadDisabledSectionsTable(forceReload: true, preferredSectionIDs: Set(sectionID.map { [$0] } ?? []))
+    }
+
+    private func removeRepo(_ repo: Repo, inSectionID sectionID: String?) {
+        guard canRemove(repo) else {
+            return
+        }
+        guard !DownloadManager.shared.queueRunning else {
+            TabBarController.singleton?.presentPopupController()
+            return
+        }
+        RepoManager.shared.remove(repo: repo)
+        reloadDisabledSectionsTable(forceReload: true, preferredSectionIDs: Set(sectionID.map { [$0] } ?? []))
+    }
+
+    private func refreshRepo(_ repo: Repo, inSectionID sectionID: String?) {
+        guard activeRefreshSectionID == nil else {
+            return
+        }
+        let previousSuccessAt = RepoManager.shared.refreshState(for: repo).lastSuccessAt
+        if let sectionID {
+            activeRefreshSectionID = sectionID
+            reloadDisabledSectionsTable(forceReload: true, preferredSectionIDs: [sectionID])
+        }
+
+        RepoManager.shared.update(force: true,
+                                  forceReload: true,
+                                  isBackground: false,
+                                  selectionMode: .explicit,
+                                  repos: [repo]) { didFindErrors, errorOutput in
+            if self.refreshSucceeded(repo: repo, previousSuccessAt: previousSuccessAt),
+               RepoManager.shared.isRepoDisabled(repo) {
+                RepoManager.shared.enableRepo(repo)
+            }
+
+            self.activeRefreshSectionID = nil
+            self.reloadDisabledSectionsTable(forceReload: true, preferredSectionIDs: Set(sectionID.map { [$0] } ?? []))
+
+            if didFindErrors, errorOutput.length > 0 {
+                self.presentRefreshErrors(errorOutput)
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = String(localizationKey: "Disabled_Sources")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 56
+        tableView.separatorColor = .sileoSeparatorColor
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 112
         tableView.register(DisabledSourcesSectionHeaderView.self,
@@ -1615,6 +1837,14 @@ final class DisabledSourcesViewController: BaseSettingsViewController {
         disabledSectionsSnapshot.isEmpty ? 0 : 112
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        disabledSectionsSnapshot.isEmpty ? 220 : UITableView.automaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        disabledSectionsSnapshot.isEmpty ? 220 : 56
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard !disabledSectionsSnapshot.isEmpty else {
             return 1
@@ -1628,65 +1858,64 @@ final class DisabledSourcesViewController: BaseSettingsViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if disabledSectionsSnapshot.isEmpty {
-            let cell = self.reusableCell(withStyle: .default, reuseIdentifier: "DisabledSourcesEmptyCell")
-            cell.textLabel?.text = String(localizationKey: "Disabled_Sources_Empty")
-            cell.selectionStyle = .none
-            cell.accessoryType = .none
+            let cell = self.reusableCell(withStyle: .default,
+                                         reuseIdentifier: DisabledSourcesEmptyTableViewCell.reuseIdentifier,
+                                         cellClass: DisabledSourcesEmptyTableViewCell.self) as? DisabledSourcesEmptyTableViewCell ?? DisabledSourcesEmptyTableViewCell(style: .default, reuseIdentifier: DisabledSourcesEmptyTableViewCell.reuseIdentifier)
+            cell.configure(title: String(localizationKey: "Disabled_Sources_Empty"))
             return cell
         }
 
         guard let repo = repo(at: indexPath) else {
             let cell = self.reusableCell(withStyle: .default, reuseIdentifier: "DisabledSourcesFallbackCell")
-            cell.textLabel?.text = String(localizationKey: "Disabled_Sources_Empty")
+            cell.textLabel?.text = nil
             cell.selectionStyle = .none
             cell.accessoryType = .none
             return cell
         }
-        let state = RepoManager.shared.refreshState(for: repo)
-        let cell = self.reusableCell(withStyle: .subtitle, reuseIdentifier: "DisabledSourceCell")
-        cell.textLabel?.text = displayTitle(for: repo)
-        cell.detailTextLabel?.text = detailText(state: state)
-        cell.detailTextLabel?.numberOfLines = 2
-        cell.accessoryType = .none
-        cell.selectionStyle = .default
+        let cell = self.reusableCell(withStyle: .default,
+                                     reuseIdentifier: DisabledSourceTableViewCell.reuseIdentifier,
+                                     cellClass: DisabledSourceTableViewCell.self) as? DisabledSourceTableViewCell ?? DisabledSourceTableViewCell(style: .default, reuseIdentifier: DisabledSourceTableViewCell.reuseIdentifier)
+        let title = displayTitle(for: repo)
+        cell.configure(title: title,
+                       url: repo.repoName.isEmpty ? nil : repo.displayURL)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        repo(at: indexPath) != nil
+    }
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let repo = repo(at: indexPath) else {
-            tableView.deselectRow(at: indexPath, animated: true)
-            return
+            return nil
+        }
+        let sectionID = section(at: indexPath.section)?.id
+
+        let refresh = UIContextualAction(style: .normal, title: String(localizationKey: "Refresh")) { [weak self] _, _, completionHandler in
+            self?.refreshRepo(repo, inSectionID: sectionID)
+            completionHandler(true)
+        }
+        refresh.backgroundColor = .systemGreen
+
+        let enable = UIContextualAction(style: .normal, title: String(localizationKey: "Enable")) { [weak self] _, _, completionHandler in
+            self?.enableRepo(repo, inSectionID: sectionID)
+            completionHandler(true)
+        }
+        enable.backgroundColor = .systemOrange
+
+        guard canRemove(repo) else {
+            return UISwipeActionsConfiguration(actions: [enable, refresh])
         }
 
-        let alert = UIAlertController(title: displayTitle(for: repo), message: repo.repoName.isEmpty ? nil : repo.displayURL, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: String(localizationKey: "Enable"), style: .default) { _ in
-            guard !DownloadManager.shared.queueRunning else {
-                TabBarController.singleton?.presentPopupController()
-                return
-            }
-            RepoManager.shared.enableRepo(repo)
-            let sectionID = self.section(at: indexPath.section)?.id
-            self.reloadDisabledSectionsTable(forceReload: true, preferredSectionIDs: Set(sectionID.map { [$0] } ?? []))
-        })
-        if self.canRemove(repo) {
-            alert.addAction(UIAlertAction(title: String(localizationKey: "Remove"), style: .destructive) { _ in
-                guard !DownloadManager.shared.queueRunning else {
-                    TabBarController.singleton?.presentPopupController()
-                    return
-                }
-                RepoManager.shared.remove(repo: repo)
-                let sectionID = self.section(at: indexPath.section)?.id
-                self.reloadDisabledSectionsTable(forceReload: true, preferredSectionIDs: Set(sectionID.map { [$0] } ?? []))
-            })
+        let remove = UIContextualAction(style: .destructive, title: String(localizationKey: "Remove")) { [weak self] _, _, completionHandler in
+            self?.removeRepo(repo, inSectionID: sectionID)
+            completionHandler(true)
         }
-        alert.addAction(UIAlertAction(title: String(localizationKey: "Cancel"), style: .cancel))
-        if let popover = alert.popoverPresentationController,
-           let cell = tableView.cellForRow(at: indexPath) {
-            popover.sourceView = cell
-            popover.sourceRect = cell.bounds
-        }
-        self.present(alert, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        return UISwipeActionsConfiguration(actions: [remove, enable, refresh])
     }
 
     private func canRemove(_ repo: Repo) -> Bool {
