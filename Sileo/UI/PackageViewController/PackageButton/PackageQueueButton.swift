@@ -258,7 +258,47 @@ class PackageQueueButton: PackageButton {
             UIPasteboard.general.string = package.package
         }
         actionItems.append(copyBundleIDAction)
-        
+
+        // App-layer update block (not dpkg hold)
+        if PackageListManager.shared.installedPackage(identifier: package.package) != nil {
+            if UpdateBlockManager.shared.rule(for: package.package) != nil {
+                let unblock = CSActionItem(
+                    title: String(localizationKey: "Package_Block_Update_Unblock"),
+                    image: UIImage(systemNameOrNil: "hand.raised.slash"),
+                    style: .default
+                ) {
+                    UpdateBlockManager.shared.unblock(packageID: package.package)
+                    NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                }
+                actionItems.append(unblock)
+            } else {
+                let permanent = CSActionItem(
+                    title: String(localizationKey: "Package_Block_Update_Permanent_Only"),
+                    image: UIImage(systemNameOrNil: "hand.raised"),
+                    style: .default
+                ) {
+                    UpdateBlockManager.shared.blockPermanently(packageID: package.package)
+                    NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                }
+                actionItems.append(permanent)
+
+                if let newest = PackageListManager.shared.newestPackage(identifier: package.package),
+                   let installed = PackageListManager.shared.installedPackage(identifier: package.package),
+                   DpkgWrapper.isVersion(newest.version, greaterThan: installed.version) {
+                    let title = String(format: String(localizationKey: "Package_Block_Update_This_Version"), newest.version)
+                    let maxBlock = CSActionItem(
+                        title: title,
+                        image: UIImage(systemNameOrNil: "hand.raised.fill"),
+                        style: .default
+                    ) {
+                        UpdateBlockManager.shared.blockMaxVersion(packageID: package.package, version: newest.version)
+                        NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                    }
+                    actionItems.append(maxBlock)
+                }
+            }
+        }
+
         return actionItems
     }
     
