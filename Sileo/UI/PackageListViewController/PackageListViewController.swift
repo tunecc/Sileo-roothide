@@ -196,6 +196,7 @@ class PackageListViewController: SileoScrollViewController, UIGestureRecognizerD
         if self.showUpdates {
             NotificationCenter.default.addObserver(self, selector: #selector(self.reloadDataWithUpdates), name: PackageListManager.prefsNotification, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(self.reloadDataWithUpdates), name: Notification.Name("ShowIgnoredUpdates"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.reloadDataWithUpdates), name: UpdateBlockManager.didChangeNotification, object: nil)
         }
         if loadProvisional {
             NotificationCenter.default.addObserver(self, selector: #selector(self.reloadData), name: CanisterResolver.refreshList, object: nil)

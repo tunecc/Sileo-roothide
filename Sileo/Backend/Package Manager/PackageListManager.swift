@@ -142,6 +142,12 @@ final class PackageListManager {
             
             if latestPackage.version != package.version {
                 if DpkgWrapper.isVersion(latestPackage.version, greaterThan: package.version) {
+                    if UpdateBlockManager.shared.isUpdateBlocked(
+                        packageID: package.package,
+                        candidateVersion: latestPackage.version
+                    ) {
+                        continue
+                    }
                     updatesAvailable.append((latestPackage, package))
                 }
             }
