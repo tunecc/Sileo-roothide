@@ -751,7 +751,52 @@ class PackageViewController: SileoViewController, PackageQueueButtonDataProvider
             }
             sharePopup.addAction(ignoreUpdates)
         }
-        
+
+        // App-layer block updates (separate from dpkg hold above)
+        if let installedPackage = installedPackage {
+            if UpdateBlockManager.shared.rule(for: package.package) != nil {
+                let unblockApp = UIAlertAction(title: String(localizationKey: "Package_Block_Update_Unblock"), style: .default) { _ in
+                    UpdateBlockManager.shared.unblock(packageID: package.package)
+                    NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                }
+                sharePopup.addAction(unblockApp)
+            } else {
+                var candidateVersion: String?
+                if let newest = PackageListManager.shared.newestPackage(identifier: package.package),
+                   DpkgWrapper.isVersion(newest.version, greaterThan: installedPackage.version) {
+                    candidateVersion = newest.version
+                }
+                if let candidateVersion {
+                    let blockMenu = UIAlertAction(title: String(localizationKey: "Package_Block_Update_Action"), style: .default) { _ in
+                        let sheet = UIAlertController(title: String(localizationKey: "Package_Block_Update_Action"),
+                                                      message: nil,
+                                                      preferredStyle: .actionSheet)
+                        sheet.addAction(UIAlertAction(title: String(localizationKey: "Package_Block_Update_Permanent"), style: .default) { _ in
+                            UpdateBlockManager.shared.blockPermanently(packageID: package.package)
+                            NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                        })
+                        let verTitle = String(format: String(localizationKey: "Package_Block_Update_This_Version"), candidateVersion)
+                        sheet.addAction(UIAlertAction(title: verTitle, style: .default) { _ in
+                            UpdateBlockManager.shared.blockMaxVersion(packageID: package.package, version: candidateVersion)
+                            NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                        })
+                        sheet.addAction(UIAlertAction(title: String(localizationKey: "Cancel"), style: .cancel))
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            sheet.popoverPresentationController?.sourceView = shareButton
+                        }
+                        self.present(sheet, animated: true)
+                    }
+                    sharePopup.addAction(blockMenu)
+                } else {
+                    let permanentOnly = UIAlertAction(title: String(localizationKey: "Package_Block_Update_Permanent_Only"), style: .default) { _ in
+                        UpdateBlockManager.shared.blockPermanently(packageID: package.package)
+                        NotificationCenter.default.post(name: PackageListManager.prefsNotification, object: nil)
+                    }
+                    sharePopup.addAction(permanentOnly)
+                }
+            }
+        }
+
         let wishListText = WishListManager.shared.isPackageInWishList(package.package) ?
             String(localizationKey: "Package_Wishlist_Remove") : String(localizationKey: "Package_Wishlist_Add")
         let wishlist = UIAlertAction(title: wishListText, style: .default) { _ in
