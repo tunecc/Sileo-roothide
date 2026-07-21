@@ -99,7 +99,7 @@ extension SettingsViewController { // UITableViewDataSource
         case 1: // Themes
             return 5
         case 2:
-            return 12
+            return 13
         case 3: // About section
             return 5
         default:
@@ -172,6 +172,13 @@ extension SettingsViewController { // UITableViewDataSource
                 fatalError("You done goofed")
             }
         case 2:
+            if indexPath.row == 12 {
+                let cell = self.reusableCell(withStyle: .value1, reuseIdentifier: "BlockedUpdatesCell")
+                cell.textLabel?.text = String(localizationKey: "Blocked_Updates_Title")
+                cell.detailTextLabel?.text = "\(UpdateBlockManager.shared.allRulesSorted().count)"
+                cell.accessoryType = .disclosureIndicator
+                return cell
+            }
             if indexPath.row == 11 {
                 let cell = self.reusableCell(withStyle: .value1, reuseIdentifier: "SourceManagementCellIdentifier")
                 cell.textLabel?.text = String(localizationKey: "Source_Management")
@@ -313,6 +320,9 @@ extension SettingsViewController { // UITableViewDataSource
             if indexPath.row == 11 {
                 let sourceManagementVC = SourceManagementSettingsViewController(style: .grouped)
                 self.navigationController?.pushViewController(sourceManagementVC, animated: true)
+            } else if indexPath.row == 12 {
+                let vc = BlockedUpdatesViewController(style: .grouped)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         case 3: // About section
             switch indexPath.row {

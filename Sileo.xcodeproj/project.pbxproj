@@ -301,6 +301,9 @@
 		E12818CB26BBFAA500D2553B /* WhiteBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A5989C214657BB00677FCA /* WhiteBlur.m */; };
 		E12818CC26BBFAA500D2553B /* WishListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102D1E222CD514C00A4C9BA /* WishListManager.swift */; };
 		A84F000426BBFAA500A4C904 /* UpdateBlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F000122CD514C00A4C901 /* UpdateBlockManager.swift */; };
+		A84F001D26BBFAA500A4C91D /* BlockedUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F001A22CD514C00A4C91A /* BlockedUpdatesViewController.swift */; };
+		A84F001B22CD514C00A4C91B /* BlockedUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F001A22CD514C00A4C91A /* BlockedUpdatesViewController.swift */; };
+		A84F001C22EA920900A4C91C /* BlockedUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F001A22CD514C00A4C91A /* BlockedUpdatesViewController.swift */; };
 		E12818CD26BBFAA500D2553B /* ZKSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A5989A214657A700677FCA /* ZKSwizzle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E12818CE26BBFAA500D2553B /* XZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C5EBC266687C80080BFCE /* XZ.swift */; };
 		E12818CF26BBFAA500D2553B /* NewsArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBD0034240C31B3008E11B2 /* NewsArticleCollectionViewCell.swift */; };
@@ -1651,6 +1654,7 @@
 		FB40261F23DE2B9C002D97FE /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		FB40262223DE3279002D97FE /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		FB40262523DE5547002D97FE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A84F001A22CD514C00A4C91A /* BlockedUpdatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUpdatesViewController.swift; sourceTree = "<group>"; };
 		FB40262823DE87F8002D97FE /* SettingsIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsIconHeaderView.swift; sourceTree = "<group>"; };
 		FB40262B23DE8A60002D97FE /* PaymentProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProviderTableViewCell.swift; sourceTree = "<group>"; };
 		FB40262F23DF2ED3002D97FE /* SettingsLoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoadingTableViewCell.swift; sourceTree = "<group>"; };
@@ -2115,6 +2119,7 @@
 				FB40262823DE87F8002D97FE /* SettingsIconHeaderView.swift */,
 				E1B3FBCD2601467500F2E07F /* SettingsSwitchTableViewCell.swift */,
 				FB40262523DE5547002D97FE /* SettingsViewController.swift */,
+				A84F001A22CD514C00A4C91A /* BlockedUpdatesViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -4094,6 +4099,7 @@
 				E128184D26BBFAA500D2553B /* DepictionScreenshotsViewController.swift in Sources */,
 				E128184E26BBFAA500D2553B /* NewsGradientBackgroundView.swift in Sources */,
 				E128184F26BBFAA500D2553B /* SettingsViewController.swift in Sources */,
+				A84F001D26BBFAA500A4C91D /* BlockedUpdatesViewController.swift in Sources */,
 				E128185026BBFAA500D2553B /* DepictionSeparatorView.swift in Sources */,
 				E128185126BBFAA500D2553B /* SileoSelectionView.swift in Sources */,
 				E128185226BBFAA500D2553B /* SileoTableViewController.swift in Sources */,
@@ -4313,6 +4319,7 @@
 				FBBD003F240C31B4008E11B2 /* NewsGradientBackgroundView.swift in Sources */,
 				E1EB036C268BA4C30097CEE1 /* DependencyResolverAccelerator.swift in Sources */,
 				FB40262723DE5547002D97FE /* SettingsViewController.swift in Sources */,
+				A84F001C22EA920900A4C91C /* BlockedUpdatesViewController.swift in Sources */,
 				F139D0F922EA9209007F5C0D /* DepictionSeparatorView.swift in Sources */,
 				E163BEB62889E5B9004A20CC /* Set+Extensions.swift in Sources */,
 				F170606324CF54E0001596A0 /* SileoTableViewController.swift in Sources */,
@@ -4498,6 +4505,7 @@
 				F1C5D9C022D181BE0021BD89 /* DepictionScreenshotsViewController.swift in Sources */,
 				FBBD003E240C31B4008E11B2 /* NewsGradientBackgroundView.swift in Sources */,
 				FB40262623DE5547002D97FE /* SettingsViewController.swift in Sources */,
+				A84F001B22CD514C00A4C91B /* BlockedUpdatesViewController.swift in Sources */,
 				F1C5D99222D13E610021BD89 /* DepictionSeparatorView.swift in Sources */,
 				F1C85B47232574F70064D3A2 /* SileoSelectionView.swift in Sources */,
 				F170606224CF54E0001596A0 /* SileoTableViewController.swift in Sources */,
