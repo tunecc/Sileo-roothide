@@ -66,6 +66,18 @@
 "Package_Hold_Disable_Action" = "取消忽略更新";
 "Package_Wishlist_Add" = "添加到愿望清单";
 "Package_Wishlist_Remove" = "从愿望清单中删除";
+"Package_Block_Update_Action" = "屏蔽更新…";
+"Package_Block_Update_Permanent" = "永久屏蔽";
+"Package_Block_Update_This_Version" = "屏蔽此版本（%@）";
+"Package_Block_Update_Unblock" = "取消屏蔽更新";
+"Package_Block_Update_Permanent_Only" = "永久屏蔽更新";
+"Blocked_Updates_Title" = "已屏蔽更新";
+"Blocked_Updates_Empty" = "暂无屏蔽的更新";
+"Blocked_Updates_Clear_All" = "清空全部";
+"Blocked_Updates_Clear_Confirm" = "确定移除全部更新屏蔽？此操作无法撤销。";
+"Blocked_Updates_Rule_Permanent" = "永久";
+"Blocked_Updates_Rule_Max_Version" = "上限 %@";
+"Blocked_Updates_Settings_Footer" = "被屏蔽的软件包不会出现在更新列表与“全部更新”中，仍可手动安装。此功能独立于“忽略未来的更新”（系统 Hold）。";
 "Wishlist" = "愿望清单";
 
 "No_New_Packages" = "没有新的软件包";
