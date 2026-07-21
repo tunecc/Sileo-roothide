@@ -66,6 +66,18 @@
 "Package_Hold_Disable_Action" = "Stop Ignoring Updates";
 "Package_Wishlist_Add" = "Add to Wishlist";
 "Package_Wishlist_Remove" = "Remove from Wishlist";
+"Package_Block_Update_Action" = "Block Updates…";
+"Package_Block_Update_Permanent" = "Block Permanently";
+"Package_Block_Update_This_Version" = "Block This Version (%@)";
+"Package_Block_Update_Unblock" = "Unblock Updates";
+"Package_Block_Update_Permanent_Only" = "Block Updates Permanently";
+"Blocked_Updates_Title" = "Blocked Updates";
+"Blocked_Updates_Empty" = "No Blocked Updates";
+"Blocked_Updates_Clear_All" = "Clear All";
+"Blocked_Updates_Clear_Confirm" = "Remove all update blocks? This cannot be undone.";
+"Blocked_Updates_Rule_Permanent" = "Permanent";
+"Blocked_Updates_Rule_Max_Version" = "Up to %@";
+"Blocked_Updates_Settings_Footer" = "Blocked packages are hidden from the Updates list and Upgrade All. Manual install is still allowed. This is separate from Ignore Future Updates (dpkg hold).";
 "Wishlist" = "Wishlist";
 
 "No_New_Packages" = "No New Packages";
