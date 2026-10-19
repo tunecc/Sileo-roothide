@@ -59,7 +59,13 @@ final class DownloadManager {
     }
     
     public static let shared = DownloadManager()
-    
+
+    // Patcher 检测候选，按顺序首个命中即生效：Umbra Patcher 优先，旧版 roothide Patcher 兜底
+    private static let patcherBundleIDs = [
+        "wiki.qaq.umbra.patcher",
+        "com.roothide.patcher",
+    ]
+
     public var aptRunning = false
     public var aptFinished = false
     public var queueRunning = false
@@ -784,8 +790,8 @@ final class DownloadManager {
             NSLog("SileoLog: destURL=\(destURL.path)")
             try! FileManager.default.moveItem(at: fileURL, to: destURL)
         
-            if IsAppAvailable("com.roothide.patcher") {
-                if ShareFileToApp("com.roothide.patcher", destFileName) {
+            if let patcherBundle = Self.patcherBundleIDs.first(where: IsAppAvailable) {
+                if ShareFileToApp(patcherBundle, destFileName) {
                     return
                 }
             }
@@ -922,22 +928,27 @@ final class DownloadManager {
                     
                     let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
                     
-                    let installedPatcher = PackageListManager.shared.installedPackage(identifier: "com.roothide.patcher") != nil
-                    
+                    let installedPatcher = Self.patcherBundleIDs.contains { PackageListManager.shared.installedPackage(identifier: $0) != nil }
+                    // 全部候选都不在源中时无可跳转的详情页，不添加 Get Patcher 按钮，避免点击无效果
+                    let patcherReachable = installedPatcher || Self.patcherBundleIDs.contains { PackageListManager.shared.newestPackage(identifier: $0, repoContext: nil) != nil }
+
                     let patchAction = UIAlertAction(title: String(localizationKey: installedPatcher ? "Convert" : "Get Patcher"), style: .destructive) { _ in
                         alert.dismiss(animated: true, completion: {
                             var presentModally = false
                             if installedPatcher {
                                 self.downloadDeb(package:package, msg: String(localizationKey: "Downloading_Package_Status"), handler: self.patchPackage)
                             }
-                            else if let packageview = URLManager.viewController(url: URL(string: "sileo://package/com.roothide.patcher"), isExternalOpen: true, presentModally: &presentModally) {
-                                
+                            else if let packageview = Self.patcherBundleIDs.lazy.compactMap({ id -> UIViewController? in
+                                        // URLManager 对源中不存在的包返回错误弹窗而非 nil，需先确认包在源中才继续，否则回退下一候选
+                                        guard PackageListManager.shared.newestPackage(identifier: id, repoContext: nil) != nil else { return nil }
+                                        return URLManager.viewController(url: URL(string: "sileo://package/\(id)"), isExternalOpen: true, presentModally: &presentModally)
+                                     }).first {
                                 SileoAppDelegate.presentController(packageview)
                             }
                         })
                     }
-                    
-                    if ["apt.procurs.us","ellekit.space"].contains(package.sourceRepo?.url?.host)==false {
+
+                    if patcherReachable && ["apt.procurs.us","ellekit.space"].contains(package.sourceRepo?.url?.host)==false {
                         alert.addAction(patchAction)
                     }
                     

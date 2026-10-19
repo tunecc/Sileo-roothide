@@ -1,0 +1,16 @@
+{
+  "change": "swap-umbra-patcher",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "9993a0703bcaceb27b8692fcc20e7a8721c591f4fdf05bb414c3ffff8ab5c59d",
+  "files": [
+    { "path": "docs/openspec/changes/swap-umbra-patcher/proposal.md", "sha256": "061214a0ad90b42f8d6f15503fe5fba6b42cfbba2cbf568c0e42fe9ab196f5c2" },
+    { "path": "docs/openspec/changes/swap-umbra-patcher/design.md", "sha256": "5724be8e3f28e2aa2f93304e93abee92823b9d8e39addddbeabb7bd81b857d59" },
+    { "path": "docs/openspec/changes/swap-umbra-patcher/tasks.md", "sha256": "ec8ecf5fbe6e5f4247857ebe2ebeeec7a4b7671e95ea9cce7bfa720351283d6a" },
+    { "path": "docs/openspec/changes/swap-umbra-patcher/.openspec.yaml", "sha256": "b552ab6519df8f66b705724100f565c5cd842bc9389aeaa177da9cec3d02a685" },
+    { "path": "docs/openspec/changes/swap-umbra-patcher/specs/patcher-handoff/spec.md", "sha256": "16e0c2e7aec8e9943ff72966515e3643ea4c4551211b78302fb2cb23ea531d6e" }
+  ]
+}

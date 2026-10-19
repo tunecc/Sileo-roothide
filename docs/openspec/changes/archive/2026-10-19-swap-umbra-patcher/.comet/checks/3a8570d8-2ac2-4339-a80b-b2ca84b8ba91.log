@@ -1,0 +1,193 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -jobs 8 -project Sileo.xcodeproj -scheme Sileo -configuration Debug -sdk iphoneos -derivedDataPath /tmp/sileo-umbra-makebuild -disableAutomaticPackageResolution CODE_SIGNING_ALLOWED=NO
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    SDKROOT = iphoneos18.5
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  SwipeCellKit: https://github.com/SwipeCellKit/SwipeCellKit.git @ 2.7.1
+  LNZTreeView: https://github.com/elihwyma/LNZTreeView @ master (bb7f9b7)
+  DepictionKit: /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide/Deps/DepictionKit
+  SQLite.swift: https://github.com/stephencelis/SQLite.swift.git @ 0.14.1
+  Onboarding: https://github.com/elihwyma/Onboarding @ 1.0.1
+  LNPopupController: https://github.com/elihwyma/LNPopupController @ main (6cdb4a9)
+  Down: https://github.com/johnxnguyen/Down.git @ 0.11.0
+  ZippyJSONCFamily: https://github.com/michaeleisel/ZippyJSONCFamily @ 1.2.9
+  JJLISO8601DateFormatter: https://github.com/michaeleisel/JJLISO8601DateFormatter @ 0.1.6
+  Alderis: https://github.com/elihwyma/Alderis.git @ master (95030bf)
+  ZippyJSON: https://github.com/michaeleisel/ZippyJSON.git @ 1.2.10
+  Cosmos: https://github.com/evgenyneu/Cosmos.git @ 23.0.0
+  Evander: /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide/Deps/Evander
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00006020-001C48601E33C01E, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00006020-001C48601E33C01E, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00006020-001C48601E33C01E, name:My Mac }
+{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+{ platform:macOS, variant:Mac Catalyst, name:Any Mac }
+{ platform:iOS Simulator, arch:arm64, id:B66FABCB-B23D-4A36-B242-22F574D3094C, OS:16.1, name:iPad (10th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:B66FABCB-B23D-4A36-B242-22F574D3094C, OS:16.1, name:iPad (10th generation) }
+{ platform:iOS Simulator, arch:arm64, id:B9B4E8FE-4AAF-465C-813F-067E22E29CD2, OS:18.6, name:iPad (10th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:B9B4E8FE-4AAF-465C-813F-067E22E29CD2, OS:18.6, name:iPad (10th generation) }
+{ platform:iOS Simulator, arch:arm64, id:F9B6D0ED-8CFD-4F60-9668-6DD5E5020DF1, OS:18.6, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:F9B6D0ED-8CFD-4F60-9668-6DD5E5020DF1, OS:18.6, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:2EF4A2D7-B77D-4FAD-AD3D-2AB2AD04B183, OS:16.1, name:iPad Air (5th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:2EF4A2D7-B77D-4FAD-AD3D-2AB2AD04B183, OS:16.1, name:iPad Air (5th generation) }
+{ platform:iOS Simulator, arch:arm64, id:9F5FE901-2546-46A6-9B36-3B9E4BC4FE4E, OS:18.6, name:iPad Air (5th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:9F5FE901-2546-46A6-9B36-3B9E4BC4FE4E, OS:18.6, name:iPad Air (5th generation) }
+{ platform:iOS Simulator, arch:arm64, id:AA4279BA-0AFC-43F4-A3D0-BB263BD60981, OS:18.6, name:iPad Air 11-inch (M3) }
+{ platform:iOS Simulator, arch:x86_64, id:AA4279BA-0AFC-43F4-A3D0-BB263BD60981, OS:18.6, name:iPad Air 11-inch (M3) }
+{ platform:iOS Simulator, arch:arm64, id:40B930DF-FBAC-4E44-99A7-157732BADB12, OS:18.6, name:iPad Air 13-inch (M3) }
+{ platform:iOS Simulator, arch:x86_64, id:40B930DF-FBAC-4E44-99A7-157732BADB12, OS:18.6, name:iPad Air 13-inch (M3) }
+{ platform:iOS Simulator, arch:arm64, id:B729F78A-E5E9-48F8-AA83-8AED6A81339F, OS:16.1, name:iPad Pro (11-inch) (4th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:B729F78A-E5E9-48F8-AA83-8AED6A81339F, OS:16.1, name:iPad Pro (11-inch) (4th generation) }
+{ platform:iOS Simulator, arch:arm64, id:9F62ECE2-5B47-4E75-931B-C7AE894242A6, OS:18.6, name:iPad Pro (11-inch) (4th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:9F62ECE2-5B47-4E75-931B-C7AE894242A6, OS:18.6, name:iPad Pro (11-inch) (4th generation) }
+{ platform:iOS Simulator, arch:arm64, id:05CFFF0A-50E1-4722-804B-5618A7B24F50, OS:16.1, name:iPad Pro (12.9-inch) (6th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:05CFFF0A-50E1-4722-804B-5618A7B24F50, OS:16.1, name:iPad Pro (12.9-inch) (6th generation) }
+{ platform:iOS Simulator, arch:arm64, id:412184C5-25AA-4A75-80E3-1E969ECE400D, OS:18.6, name:iPad Pro (12.9-inch) (6th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:412184C5-25AA-4A75-80E3-1E969ECE400D, OS:18.6, name:iPad Pro (12.9-inch) (6th generation) }
+{ platform:iOS Simulator, arch:arm64, id:7A41554C-8BAE-4B39-9C3D-4BE6AB328C36, OS:18.6, name:iPad Pro 11-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:7A41554C-8BAE-4B39-9C3D-4BE6AB328C36, OS:18.6, name:iPad Pro 11-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:88672FB2-B66E-4212-B5D7-4975F0310B44, OS:18.6, name:iPad Pro 13-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:88672FB2-B66E-4212-B5D7-4975F0310B44, OS:18.6, name:iPad Pro 13-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:E173FA0D-EC6B-4F66-BDC1-54F7ED808617, OS:16.1, name:iPad mini (6th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:E173FA0D-EC6B-4F66-BDC1-54F7ED808617, OS:16.1, name:iPad mini (6th generation) }
+{ platform:iOS Simulator, arch:arm64, id:342DD93F-E026-4E33-9098-18D9EB34E29D, OS:18.6, name:iPad mini (6th generation) }
+{ platform:iOS Simulator, arch:x86_64, id:342DD93F-E026-4E33-9098-18D9EB34E29D, OS:18.6, name:iPad mini (6th generation) }
+{ platform:iOS Simulator, arch:arm64, id:AA856F06-4356-4EEB-A848-553EC731003D, OS:18.6, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:AA856F06-4356-4EEB-A848-553EC731003D, OS:18.6, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:B1B60A27-1EB0-421C-AA26-EFBE9E6F165F, OS:16.1, name:iPhone 14 }
+{ platform:iOS Simulator, arch:x86_64, id:B1B60A27-1EB0-421C-AA26-EFBE9E6F165F, OS:16.1, name:iPhone 14 }
+{ platform:iOS Simulator, arch:arm64, id:6D060D06-3B64-49BD-83E5-2780B6E42CEE, OS:18.6, name:iPhone 14 }
+{ platform:iOS Simulator, arch:x86_64, id:6D060D06-3B64-49BD-83E5-2780B6E42CEE, OS:18.6, name:iPhone 14 }
+{ platform:iOS Simulator, arch:arm64, id:1CD170AA-18FD-4229-8A76-4BAFA23B3B89, OS:16.1, name:iPhone 14 Plus }
+{ platform:iOS Simulator, arch:x86_64, id:1CD170AA-18FD-4229-8A76-4BAFA23B3B89, OS:16.1, name:iPhone 14 Plus }
+{ platform:iOS Simulator, arch:arm64, id:CDD9342C-2489-4211-B025-C1705344960A, OS:18.6, name:iPhone 14 Plus }
+{ platform:iOS Simulator, arch:x86_64, id:CDD9342C-2489-4211-B025-C1705344960A, OS:18.6, name:iPhone 14 Plus }
+{ platform:iOS Simulator, arch:arm64, id:54303CCC-939F-49C5-9501-B9C962B8B8DB, OS:16.1, name:iPhone 14 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:54303CCC-939F-49C5-9501-B9C962B8B8DB, OS:16.1, name:iPhone 14 Pro }
+{ platform:iOS Simulator, arch:arm64, id:400B9811-93E2-45E1-AD69-3D873A170563, OS:18.6, name:iPhone 14 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:400B9811-93E2-45E1-AD69-3D873A170563, OS:18.6, name:iPhone 14 Pro }
+{ platform:iOS Simulator, arch:arm64, id:0EB4C603-4652-4A92-A2A3-2758CD61E47C, OS:16.1, name:iPhone 14 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:0EB4C603-4652-4A92-A2A3-2758CD61E47C, OS:16.1, name:iPhone 14 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:D9BB7DE0-2B84-408E-9B3F-F5DD9F49FF7F, OS:18.6, name:iPhone 14 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:D9BB7DE0-2B84-408E-9B3F-F5DD9F49FF7F, OS:18.6, name:iPhone 14 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:7666D364-C432-4402-87FA-6A62DF71A7A0, OS:18.6, name:iPhone 16 }
+{ platform:iOS Simulator, arch:x86_64, id:7666D364-C432-4402-87FA-6A62DF71A7A0, OS:18.6, name:iPhone 16 }
+{ platform:iOS Simulator, arch:arm64, id:B4506FFD-0C88-4584-B30B-08B720A67A61, OS:18.6, name:iPhone 16 Plus }
+{ platform:iOS Simulator, arch:x86_64, id:B4506FFD-0C88-4584-B30B-08B720A67A61, OS:18.6, name:iPhone 16 Plus }
+{ platform:iOS Simulator, arch:arm64, id:C94A6B5A-54CF-4E6B-8EDC-455D3312F7F7, OS:18.6, name:iPhone 16 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:C94A6B5A-54CF-4E6B-8EDC-455D3312F7F7, OS:18.6, name:iPhone 16 Pro }
+{ platform:iOS Simulator, arch:arm64, id:625C7676-D680-40E6-B806-6DB979E06613, OS:18.6, name:iPhone 16 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:625C7676-D680-40E6-B806-6DB979E06613, OS:18.6, name:iPhone 16 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:D4E714B9-DAA2-4C50-9335-A91DC2F2238F, OS:18.6, name:iPhone 16e }
+{ platform:iOS Simulator, arch:x86_64, id:D4E714B9-DAA2-4C50-9335-A91DC2F2238F, OS:18.6, name:iPhone 16e }
+{ platform:iOS Simulator, arch:arm64, id:13B39C16-D16F-44D5-95FE-0F710B5ADA74, OS:16.1, name:iPhone SE (3rd generation) }
+{ platform:iOS Simulator, arch:x86_64, id:13B39C16-D16F-44D5-95FE-0F710B5ADA74, OS:16.1, name:iPhone SE (3rd generation) }
+{ platform:iOS Simulator, arch:arm64, id:EC316B15-9632-4A81-88F0-0225A4CC6F7D, OS:18.6, name:iPhone SE (3rd generation) }
+{ platform:iOS Simulator, arch:x86_64, id:EC316B15-9632-4A81-88F0-0225A4CC6F7D, OS:18.6, name:iPhone SE (3rd generation) }
+{ platform:iOS, arch:arm64, id:00008110-000E783022A8201E, name:iPhone (4) }
+Build Preparation
+Build task concurrency set to 8 via user default IDEBuildOperationMaxNumberOfConcurrentCompileTasks
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (27 targets)
+    Target 'Sileo' in project 'Sileo'
+        ➜ Explicit dependency on target 'SQLite' in project 'SQLite.swift'
+        ➜ Explicit dependency on target 'LNZTreeView' in project 'LNZTreeView'
+        ➜ Explicit dependency on target 'ZippyJSON' in project 'ZippyJSON'
+        ➜ Explicit dependency on target 'Cosmos' in project 'Cosmos'
+        ➜ Explicit dependency on target 'SwipeCellKit' in project 'SwipeCellKit'
+        ➜ Explicit dependency on target 'Alderis' in project 'Alderis'
+        ➜ Explicit dependency on target 'Down' in project 'Down'
+        ➜ Explicit dependency on target 'Evander' in project 'Evander'
+        ➜ Explicit dependency on target 'Onboarding' in project 'Onboarding'
+        ➜ Explicit dependency on target 'LNPopupController-Static' in project 'LNPopupController'
+    Target 'LNPopupController-Static' in project 'LNPopupController'
+        ➜ Explicit dependency on target 'LNPopupController' in project 'LNPopupController'
+    Target 'LNPopupController' in project 'LNPopupController' (no dependencies)
+    Target 'Onboarding' in project 'Onboarding'
+        ➜ Explicit dependency on target 'Onboarding' in project 'Onboarding'
+    Target 'Onboarding' in project 'Onboarding' (no dependencies)
+    Target 'Evander' in project 'Evander'
+        ➜ Explicit dependency on target 'Evander' in project 'Evander'
+    Target 'Evander' in project 'Evander' (no dependencies)
+    Target 'Down' in project 'Down'
+        ➜ Explicit dependency on target 'Down' in project 'Down'
+        ➜ Explicit dependency on target 'Down_Down' in project 'Down'
+        ➜ Explicit dependency on target 'libcmark' in project 'Down'
+    Target 'Down' in project 'Down'
+        ➜ Explicit dependency on target 'Down_Down' in project 'Down'
+        ➜ Explicit dependency on target 'libcmark' in project 'Down'
+    Target 'libcmark' in project 'Down' (no dependencies)
+    Target 'Down_Down' in project 'Down' (no dependencies)
+    Target 'Alderis' in project 'Alderis'
+        ➜ Explicit dependency on target 'Alderis' in project 'Alderis'
+    Target 'Alderis' in project 'Alderis' (no dependencies)
+    Target 'SwipeCellKit' in project 'SwipeCellKit'
+        ➜ Explicit dependency on target 'SwipeCellKit' in project 'SwipeCellKit'
+    Target 'SwipeCellKit' in project 'SwipeCellKit' (no dependencies)
+    Target 'Cosmos' in project 'Cosmos'
+        ➜ Explicit dependency on target 'Cosmos' in project 'Cosmos'
+    Target 'Cosmos' in project 'Cosmos' (no dependencies)
+    Target 'ZippyJSON' in project 'ZippyJSON'
+        ➜ Explicit dependency on target 'ZippyJSON' in project 'ZippyJSON'
+        ➜ Explicit dependency on target 'ZippyJSONCFamily' in project 'ZippyJSONCFamily'
+        ➜ Explicit dependency on target 'JJLISO8601DateFormatter' in project 'JJLISO8601DateFormatter'
+    Target 'ZippyJSON' in project 'ZippyJSON'
+        ➜ Explicit dependency on target 'ZippyJSONCFamily' in project 'ZippyJSONCFamily'
+        ➜ Explicit dependency on target 'JJLISO8601DateFormatter' in project 'JJLISO8601DateFormatter'
+    Target 'JJLISO8601DateFormatter' in project 'JJLISO8601DateFormatter'
+        ➜ Explicit dependency on target 'JJLISO8601DateFormatter' in project 'JJLISO8601DateFormatter'
+    Target 'JJLISO8601DateFormatter' in project 'JJLISO8601DateFormatter' (no dependencies)
+    Target 'ZippyJSONCFamily' in project 'ZippyJSONCFamily'
+        ➜ Explicit dependency on target 'ZippyJSONCFamily' in project 'ZippyJSONCFamily'
+    Target 'ZippyJSONCFamily' in project 'ZippyJSONCFamily' (no dependencies)
+    Target 'LNZTreeView' in project 'LNZTreeView'
+        ➜ Explicit dependency on target 'LNZTreeView' in project 'LNZTreeView'
+    Target 'LNZTreeView' in project 'LNZTreeView' (no dependencies)
+    Target 'SQLite' in project 'SQLite.swift'
+        ➜ Explicit dependency on target 'SQLite' in project 'SQLite.swift'
+    Target 'SQLite' in project 'SQLite.swift' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk /tmp/sileo-umbra-makebuild/SDKStatCaches.noindex/iphoneos18.5-22F76-7fa4eea80a99bbfdc046826b63ec4baf.sdkstatcache
+    cd /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide/Sileo.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -o /tmp/sileo-umbra-makebuild/SDKStatCaches.noindex/iphoneos18.5-22F76-7fa4eea80a99bbfdc046826b63ec4baf.sdkstatcache
+
+ProcessInfoPlistFile /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Down_Down.bundle/Info.plist /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Down.build/Debug-iphoneos/Down_Down.build/empty-Down_Down.plist (in target 'Down_Down' from project 'Down')
+    cd /tmp/sileo-umbra-makebuild/SourcePackages/checkouts/Down
+    builtin-infoPlistUtility /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Down.build/Debug-iphoneos/Down_Down.build/empty-Down_Down.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphoneos -requiredArchitecture arm64 -o /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Down_Down.bundle/Info.plist
+
+ProcessInfoPlistFile /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Info.plist /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide/Sileo/Info.plist (in target 'Sileo' from project 'Sileo')
+    cd /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide
+    builtin-infoPlistUtility /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide/Sileo/Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/NewsPlaceholderCollectionViewCell-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/DepictionSubpageViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/DownloadsTableViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/FeaturedViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/FlaggedSourceWarningViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/InstalledContentsViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/Base.lproj/LaunchScreen-SBPartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/Base.lproj/Main-SBPartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/NewsArticleCollectionViewCell-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/NewsArticlesViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/NewsDateHeader-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/NewsViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/PackageCollectionViewCell-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/PackageListHeader-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/PackageListHeaderBlank-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/PackageListViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/PackageViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/SourcesErrorsViewController-PartialInfo.plist -additionalcontentfile /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Down_Down.bundle -requiredArchitecture arm64 -o /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Info.plist
+warning: The application supports opening files, but doesn't declare whether it supports opening them in place. You can add an LSSupportsOpeningDocumentsInPlace entry or an UISupportsDocumentBrowser entry to your Info.plist to declare support. (in target 'Sileo' from project 'Sileo')
+
+CopySwiftLibs /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app (in target 'Sileo' from project 'Sileo')
+    cd /Users/tune/Documents/Scripts/Jailbreak/GitHub/Sileo-roothide
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Sileo.debug.dylib --scan-folder /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Frameworks --scan-folder /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/PlugIns --scan-folder /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/SystemExtensions --scan-folder /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Extensions --scan-folder /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework --scan-folder /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/Security.framework --platform iphoneos --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/sileo-umbra-makebuild/Build/Products/Debug-iphoneos/Sileo.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/sileo-umbra-makebuild/Build/Intermediates.noindex/Sileo.build/Debug-iphoneos/Sileo.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+Ignoring --strip-bitcode because --sign was not passed
+
+** BUILD SUCCEEDED **
+
