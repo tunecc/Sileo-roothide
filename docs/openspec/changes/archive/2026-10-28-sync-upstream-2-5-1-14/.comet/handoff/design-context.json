@@ -1,0 +1,16 @@
+{
+  "change": "sync-upstream-2-5-1-14",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf",
+  "files": [
+    { "path": "docs/openspec/changes/sync-upstream-2-5-1-14/proposal.md", "sha256": "a127b71dd09497f7523ccadf8f97d8a8504fa909f04978b77168d319ec3e6b6b" },
+    { "path": "docs/openspec/changes/sync-upstream-2-5-1-14/design.md", "sha256": "9c4c6e2dc5870759569581ad3020e737c6787999335e73e5285699f4c55382fd" },
+    { "path": "docs/openspec/changes/sync-upstream-2-5-1-14/tasks.md", "sha256": "82dd02ec82cdb85f1f3ac70ae29792663a0ba9a19becfe44a8d3531790d93ea1" },
+    { "path": "docs/openspec/changes/sync-upstream-2-5-1-14/.openspec.yaml", "sha256": "9e0a467e3934b14a2d9c9175305310e9359d34e2484a458af3d182c2956b9e2d" },
+    { "path": "docs/openspec/changes/sync-upstream-2-5-1-14/specs/source-entry-validation/spec.md", "sha256": "860ea6b06a009ba5ad391bb5924267a09a146529fe75104ff27aea5fe565f96b" }
+  ]
+}

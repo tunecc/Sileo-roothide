@@ -2,6 +2,8 @@
 comet_change: sync-upstream-2-5-1-14
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-10-28-sync-upstream-2-5-1-14
+status: final
 ---
 
 # Design

@@ -1,0 +1,2866 @@
+# comet-execution: managed-run
+change_id: 4c034e4e-b263-474d-a714-bc5cdbac656f
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: autonomous
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: standard
+isolation: worktree
+verify_mode: null
+auto_transition: true
+base_ref: 24dd2c05e9aca0febfc85b00c2a0c2bbac66db56
+design_doc: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14/design.md
+plan: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+branch_status: pending
+created_at: 2026-10-28
+verified_at: 2026-10-28
+archive_confirmation: confirmed
+archived: true
+bound_branch: comet/sync-upstream-2-5-1-14
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+handoff_hash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: 53b1d4a0960cc7c997f7d484c5a0657c7e93e4f259d6cdc39c950b7443245ad1
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: sync-upstream-2-5-1-14
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: 27adc2dfd4e0cefaf7a64161af25905fdd1ff5dd5a692672037e1f288ec4c19d
+    input:
+      change: sync-upstream-2-5-1-14
+      changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 24dd2c05e9aca0febfc85b00c2a0c2bbac66db56
+      boundBranch: comet/sync-upstream-2-5-1-14
+      branchStatus: pending
+      buildMode: autonomous
+      buildPause: null
+      checkEpoch: 6
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-10-28
+      designDoc: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+      handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+      isolation: worktree
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+      verifiedAt: 2026-10-28
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 24
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-e238311aef5ce22202f85aebaaab354674d87c35d80188baaaa94a4878763994
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:1
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: b5056d2c5b69439c9c41224484f1259cc16a38a9a020b708a9f1fa24c35523c8
+        outcome:
+          actionId: sync-upstream-2-5-1-14:1
+          attempt: 1
+          claimToken: portable-e238311aef5ce22202f85aebaaab354674d87c35d80188baaaa94a4878763994
+          inputHash: b5056d2c5b69439c9c41224484f1259cc16a38a9a020b708a9f1fa24c35523c8
+          outcomeId: 5328ce7a-e2d7-4664-b04a-f7313347e7cd
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 934f9a8b53cf1322d897eeaad251d3790647b86240e58bb5256f3b9775dffb95
+            outcomeId: 5328ce7a-e2d7-4664-b04a-f7313347e7cd
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-4dcb8b02b0131f184d2f9ab335adc666d1f4be7c66ee6d792957846ad55921df
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:4
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: ff649bf444126c093ce1a3b0c828b48436bbb7bf4ec80f4edb500c7feafeda7d
+        outcome:
+          actionId: sync-upstream-2-5-1-14:4
+          attempt: 1
+          claimToken: portable-4dcb8b02b0131f184d2f9ab335adc666d1f4be7c66ee6d792957846ad55921df
+          inputHash: ff649bf444126c093ce1a3b0c828b48436bbb7bf4ec80f4edb500c7feafeda7d
+          outcomeId: sync-upstream-2-5-1-14:4:1:executor-result
+          output:
+            contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e8601030c4a47bb9885d16b7a93e7bbd92f55cc98ec484c8b2f52c27732786e6
+            outcomeId: sync-upstream-2-5-1-14:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-1f9c090258ad1f2ba410f29f8ab9f25914ec452946c7091a56723d48f6dfd9b7
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:5
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 055b8362037dbb05c181da0a5b823b1c8f01c6e7fbc8e5aa294205876198e124
+        outcome:
+          actionId: sync-upstream-2-5-1-14:5
+          attempt: 1
+          claimToken: portable-1f9c090258ad1f2ba410f29f8ab9f25914ec452946c7091a56723d48f6dfd9b7
+          inputHash: 055b8362037dbb05c181da0a5b823b1c8f01c6e7fbc8e5aa294205876198e124
+          outcomeId: e635e033-e61c-48f3-b8c6-379f5bdaaeee
+          output:
+            handoffContext: docs/openspec/changes/sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+            handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+            proposal: |-
+              ## 候选方案
+
+              ### 1. 合并方式
+              - 采用：git merge upstream/main（保留上游为祖先，后续同步可持续复用同一 merge-base；fork 的 20 个提交不改写历史）。
+              - 备选：cherry-pick c001f54/9e528bf/92a3b74/84645de（丢失祖先关系，下次需重算差异）；rebase fork 提交（改写已推送历史，风险高）。
+
+              ### 2. 构建链（双方重复实现的 Alderis iOS 26 tab 补丁）
+              - 采用上游 patches/alderis-ios26-tab.patch + Makefile patch-deps（stage: patch-deps all；xcodebuild 加 -disableAutomaticPackageResolution）。
+              - 删除 fork 的 Scripts/patch-alderis-checkout.sh 及 Makefile 内联解析/补丁调用。
+              - 保留 fork 的 RUN_CLANG_STATIC_ANALYZER=NO 与 SILEO_APP_INSTALL_PATH/postinst 路径替换（解决不同问题）。
+
+              ### 3. .tbd 架构声明
+              - 采用上游 [arm64, arm64e]：双方都移除了模拟器架构，上游额外保留 arm64e，属于规范版本，减少后续冲突。
+
+              ### 4. 源格式校验（上游新增 hasCompatibleSourceFormat）
+              - 移植上游的 URL/scheme/host 校验到 importRepos(fromURL:)、presentAddClipBoardPrompt、handleSourceAdd 三处。
+              - 去掉上游「suite 必须为 ./ 且 components 必须为空」的限制，保留 fork 的 suite/components 源管理能力（已确认：适配保留两者）。
+
+              ### 5. Jailbreak/Bootstrap 重构
+              - 整体采用上游简化枚举与新增 Relaxin 分支，同步更新 fork 引用点；本 fork 无 Codable 持久化，rawValue 仅用于展示，重命名安全。
+
+              ### 6. 冲突解决原则
+              - fork 独有功能文件以 fork 行为为准，合入上游无关修复。
+              - 上游共享基础设施（Jailbreak/Bootstrap、DownloadManager、DatabaseManager、APTWrapper、ControlFileParserFast、Depiction*、SileoNavigationController、Info.plist）以上游为准。
+              - 双方防护性改动（NewsViewController、PackageListViewController 安全索引/并发）取并集，复用 fork 已抽出的辅助方法。
+              - PackageListManager 保留 fork 屏蔽更新过滤 + 采用上游排序比较器修正；DownloadManager 保留 fork Patcher 优先 + 采用上游损坏包/IncompatibleRepo 重构。
+              - project.pbxproj 采用 MARKETING_VERSION=2.5.1-14，保留 fork 新增文件引用（UpdateBlockManager、BlockedUpdatesViewController、RootHideCompat、测试）。
+
+              ### 7. 版本号
+              - 采用上游 2.5.1-14；父工作区未提交的 2.5.1-13 提升不进入本 change 分支。
+
+              ## 关键取舍与风险
+              - 取舍：merge 一次性解决冲突优于长期维护两套等价构建链；采用上游规范版本以降低后续同步成本。
+              - 风险：大面积文本冲突可能覆盖 fork 功能 → 逐文件解决 + 定向 diff 复核 + 构建/测试验证。
+              - 风险：patch-deps 依赖 SPM checkout 为 git 仓库；make stage 验证失败时报告，不擅自回退 fork 脚本（回退属范围变化）。
+              - 风险：Jailbreak 重命名导致编译错误 → 合并后构建并修正引用。
+              - 风险：无法设备级验证 UI → 以 xcodebuild/make stage + UpdateBlockManagerTests 作为可执行验证，并在交付说明中明确限制。
+              - 风险：上游 UIDesignRequiresCompatibility 改变 iOS 26 外观 → 属上游有意行为，保留。
+
+              ## 测试策略
+              - 合并后构建：make stage 或 xcodebuild 成功。
+              - 运行 UpdateBlockManagerTests（无法运行时记录原因与替代验证）。
+              - grep 校验 fork 功能符号（UpdateBlockManager、RepoManagementPolicy、RootHideCompat、patcherBundleIDs）仍存在。
+              - git merge-base --is-ancestor upstream/main HEAD 验证祖先关系；git diff --check 与 plutil -lint 检查格式。
+
+              ## Spec Patch
+              - 无。Open 阶段已写入 specs/source-entry-validation/spec.md（URL 合法性校验 + suite/components 支持），设计阶段不新增或改写行为规格。
+            requirementsEvidence:
+              contentHash: 9efe81bb2d5f7711a4e9bebd2bd7e8230ddd52315cc4870b7763f2b66f45af37
+              ref: docs/openspec/changes/sync-upstream-2-5-1-14
+            sourceEvidence:
+              contentHash: 11a0a26b6a962eb3aaf39567734190d1a08e4ab4f494ed8ad2ccda2c93ab237a
+              ref: docs/openspec/changes/sync-upstream-2-5-1-14
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3a40dbe1777f39fbed8c0dc26555659528306d863a61391e0e61f38e9cf22bd9
+            outcomeId: e635e033-e61c-48f3-b8c6-379f5bdaaeee
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-66ef1b7cddb642c66ebf4ed590fe68fd7c9fb4131115c921fdf53212c455d4eb
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:7
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: d861e7dd143184cdf8c2b141c2815e54d1849b5e3870a36d563f255252033290
+        outcome:
+          actionId: sync-upstream-2-5-1-14:7
+          attempt: 1
+          claimToken: portable-66ef1b7cddb642c66ebf4ed590fe68fd7c9fb4131115c921fdf53212c455d4eb
+          inputHash: d861e7dd143184cdf8c2b141c2815e54d1849b5e3870a36d563f255252033290
+          outcomeId: 7e555034-c79e-497f-a4e4-21e6892f8811
+          output:
+            designDoc: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1fbfee93c4a58a904b8b42aabb63b0cbe9bc2c4078869e7772ad13386969c39e
+            outcomeId: 7e555034-c79e-497f-a4e4-21e6892f8811
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-34ac1a066f005cb312f71e27c155fb2cc0f2c3f07773cc1a89ba331106229bb8
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:9
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 07c2020665cb8b47ee532a2b7694fa9f54b801e054a598876ca4871d2012bcae
+        outcome:
+          actionId: sync-upstream-2-5-1-14:9
+          attempt: 1
+          claimToken: portable-34ac1a066f005cb312f71e27c155fb2cc0f2c3f07773cc1a89ba331106229bb8
+          inputHash: 07c2020665cb8b47ee532a2b7694fa9f54b801e054a598876ca4871d2012bcae
+          outcomeId: aade6c81-f174-4348-a1f3-d3a660db8e08
+          output:
+            boundBranch: comet/sync-upstream-2-5-1-14
+            buildMode: autonomous
+            directOverride: false
+            isolation: worktree
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: direct
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 7bb95334bcd3b8dada57db48cd7e2fd7096a03fe24cd84df720a95c184c4ca6f
+            outcomeId: aade6c81-f174-4348-a1f3-d3a660db8e08
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-3fc21f841c69d9e5dc6b88ce913fcfdd9216d3e038f173304c2027be6cb9c07c
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:11
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: b32897a9abd8d19eb522826b757c54e007c3b2262eaec10b03ae98e043d6cc17
+        outcome:
+          actionId: sync-upstream-2-5-1-14:11
+          attempt: 1
+          claimToken: portable-3fc21f841c69d9e5dc6b88ce913fcfdd9216d3e038f173304c2027be6cb9c07c
+          inputHash: b32897a9abd8d19eb522826b757c54e007c3b2262eaec10b03ae98e043d6cc17
+          outcomeId: 2a9533e0-0854-4a1f-a77f-590269a20964
+          output:
+            designEvidence:
+              contentHash: 8efc94900618129cbb57b696c8d7fd1f59ae5ebcb076984341eb8fa36ab130b2
+              ref: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+            plan: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+            planEvidence:
+              contentHash: 8d9e810e8ecef837ce93d365c9c0dcd19f41a7fbe6e3854a89c4a2d6526e2049
+              ref: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+            taskRevision: 82dd02ec82cdb85f1f3ac70ae29792663a0ba9a19becfe44a8d3531790d93ea1
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 0255583e2fdb7b321d534b401ffea52b1a230fcc46ef9b35507dee6110178396
+            outcomeId: 2a9533e0-0854-4a1f-a77f-590269a20964
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/sync-upstream-2-5-1-14:13/1
+          token: portable-95f5948bafbfcaa18b9aee231069e6fa3f2d9cbbf2b15258660c525c161d85b7
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:13
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 9a438e29bf20d1439b482fa1b30468c353e7cb0e2c99bbc50ed9d20abb8d58ea
+        outcome:
+          actionId: sync-upstream-2-5-1-14:13
+          attempt: 1
+          claimToken: portable-95f5948bafbfcaa18b9aee231069e6fa3f2d9cbbf2b15258660c525c161d85b7
+          inputHash: 9a438e29bf20d1439b482fa1b30468c353e7cb0e2c99bbc50ed9d20abb8d58ea
+          outcomeId: ecab4ed2-8467-4646-b1ba-968f7a979479
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d7ef9ef5e8d9dc0fe9291639cb4413824407e78db6bb06ec0c7fe02ba22c8de6
+            outcomeId: ecab4ed2-8467-4646-b1ba-968f7a979479
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 2
+        claim:
+          executorId: comet-classic-check
+          token: portable-12f837eed85e469883f0a4fc2d14057a3d7329b301e0a6ae402e4c740f29dd02
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:14
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 743bf8a29295aca2f8cece279fa60c2acc980ce659d5ef35beb9abceac0f202b
+        outcome:
+          actionId: sync-upstream-2-5-1-14:14
+          attempt: 2
+          claimToken: portable-12f837eed85e469883f0a4fc2d14057a3d7329b301e0a6ae402e4c740f29dd02
+          inputHash: 743bf8a29295aca2f8cece279fa60c2acc980ce659d5ef35beb9abceac0f202b
+          outcomeId: 851f5f80-11c3-48a9-8eb6-22de9a33afaa
+          output:
+            argv:
+              - make
+              - stage
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: bbd4841f9a94e196512ef339c6541c74fb1c50a67c5202d388a3188914654e4c
+            cwd: .
+            environment: 8a30df5636c690e29071d6897dc2f56294431bb2144de09b5c2f9fe11075cae4
+            exitCode: 0
+            inputAfter: 76a847fac3554df05cb0cdc88ed83e6c9a185472f5cb94206869c698329c094b
+            inputBefore: 76a847fac3554df05cb0cdc88ed83e6c9a185472f5cb94206869c698329c094b
+            manifestHash: 6c5b44998348843ab2a82456041270dac555eb50a9652cef4841ba62e2efb38e
+            manifestRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/99fa5922-da19-41fa-8d74-defbc7273919.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/a578229c-5ca7-4546-8b27-a38f9056e5bf.log
+            reusable: true
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 28d8625baf8415b723a9eee6cff6682bc7a3435f5a7623205008afedfbb3db3c
+            outcomeId: 851f5f80-11c3-48a9-8eb6-22de9a33afaa
+        reconciliations:
+          - attempt: 1
+            evidence:
+              summary: "Check Action 14 的首次尝试在建立输入快照阶段即被 Runtime 拒绝（CLASSIC_COMMAND_FAILED:
+                'Check input is a symbolic link: Sileo/Sileo/nb.lproj'），未启动 make
+                stage 子进程。核对来源：comet check run 输出
+                /tmp/comet-check-build.json（exitCode 70），以及恢复诊断
+                record.status=missing、evidence.receiptRef=null、evidence.manifes\
+                tRef=null。随后已在 .comet/check-policy.json 绑定 make stage
+                的输入面并排除该符号链接。"
+            resolution: not-executed
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-c9fe7f6e1ee34b1c881f17c2db09af66b8e73bc17a674cb8a6fc9038918957d4
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:16
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 1451a26f380e4350a29ea046e9c863e9c13657c5493b15d68842234b20af7b49
+        outcome:
+          actionId: sync-upstream-2-5-1-14:16
+          attempt: 1
+          claimToken: portable-c9fe7f6e1ee34b1c881f17c2db09af66b8e73bc17a674cb8a6fc9038918957d4
+          inputHash: 1451a26f380e4350a29ea046e9c863e9c13657c5493b15d68842234b20af7b49
+          outcomeId: b67f470f-1f21-4f07-87ad-174b56742427
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3a86aff37ebf8dced3239e13f1e770284b06efad1f30ff2a76943dcc02d3469e
+            outcomeId: b67f470f-1f21-4f07-87ad-174b56742427
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 2
+        claim:
+          executorId: comet-classic-check
+          token: portable-900be4a337c27e9ffb131c11ba91c104ca6b8ccb154e8b4c260002cb98fc4523
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:18
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 2b7e3e98fbebd681dbe17ff8f516d369c123e83648c23c8acdf674ba27f8a699
+        outcome:
+          actionId: sync-upstream-2-5-1-14:18
+          attempt: 2
+          claimToken: portable-900be4a337c27e9ffb131c11ba91c104ca6b8ccb154e8b4c260002cb98fc4523
+          inputHash: 2b7e3e98fbebd681dbe17ff8f516d369c123e83648c23c8acdf674ba27f8a699
+          outcomeId: 467f1e98-0018-4404-91fb-7abca6f7d610
+          output:
+            argv:
+              - xcodebuild
+              - test
+              - -project
+              - Sileo.xcodeproj
+              - -scheme
+              - Sileo (Test Handler)
+              - -destination
+              - platform=iOS Simulator,name=iPhone 16 Pro
+              - -derivedDataPath
+              - /var/folders/t9/zrl7l3cn5sj36jcdv8mxp8_40000gn/T/sileo
+              - -only-testing:Sileo Backend Tests/UpdateBlockManagerTests
+              - CODE_SIGNING_ALLOWED=NO
+              - -disableAutomaticPackageResolution
+            changedDuringExecution: []
+            checkEpoch: 3
+            contentHash: 70fdd7538ac05d0322a1992afa56d20a1697dcc4049cb78c89334c18f0a655e6
+            cwd: .
+            deliveryInputs: {}
+            environment: d80ed8cfd0a282231739611d7b8533a025bc7c20610661203d8616b6a04230c2
+            exitCode: 0
+            inputAfter: 3cc59bec0503628b95bedacd0186ab9d55c6b74e4c0b3e7bbc80bf06157b5d4d
+            inputBefore: 3cc59bec0503628b95bedacd0186ab9d55c6b74e4c0b3e7bbc80bf06157b5d4d
+            manifestHash: 9f46a39e91a8664f668ba88c39f7c29ecf98962cda60116dc096bf0dc4cbd6e3
+            manifestRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/233e5c38-3aee-4c3e-a37d-52c148986be9.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/37f4bb07-a9ee-40e0-b377-87cef778876a.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5b877cecbd1634f592060c5da15569395b3e6f59e538149d6fb22ccd262ddd02
+            outcomeId: 467f1e98-0018-4404-91fb-7abca6f7d610
+        reconciliations:
+          - attempt: 1
+            evidence:
+              summary: Guard 在检查输入扫描阶段以 CLASSIC_COMMAND_FAILED 退出（Sileo/Sileo/nb.lproj
+                为符号链接），未启动 xcodebuild；检查记录目录无该次执行的 JSON/日志，进程列表中无对应的 xcodebuild
+                test 进程。
+            resolution: not-executed
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-3b875027246276abe038ccfb03dd18ba61db5353e399f366a3642f014eefa9aa
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:20
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 21e5272c79381de4bb20d94ca8488d9a0fd7fd8a754cb00f0c1f5fa9f6fb6547
+        outcome:
+          actionId: sync-upstream-2-5-1-14:20
+          attempt: 1
+          claimToken: portable-3b875027246276abe038ccfb03dd18ba61db5353e399f366a3642f014eefa9aa
+          inputHash: 21e5272c79381de4bb20d94ca8488d9a0fd7fd8a754cb00f0c1f5fa9f6fb6547
+          outcomeId: f91e31d3-c455-4e50-ab5c-b3b9676a87cb
+          output:
+            remote: origin
+            summary: 合并 upstream 2.5.1-13/2.5.1-14 四个提交到
+              fork，保留源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态与
+              roothide 构建链修复；采用上游 Alderis patch-deps、.tbd arm64+arm64e
+              与适配后的源格式校验（保留 suite/components）。验证：make stage exit
+              0、UpdateBlockManagerTests 7/7、独立审查无 CRITICAL/IMPORTANT。归档将把
+              source-entry-validation delta spec 合入主 spec、标注 design/plan 并移动
+              change 到 archive；随后创建唯一归档提交并推送
+              origin/comet/sync-upstream-2-5-1-14（用户选择 push，不创建 PR）。
+            targetBranch: comet/sync-upstream-2-5-1-14
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 65c2c2bbe7c96e58130388bc0e8617daf0e86906f579b2a75adc949fb9dea0e8
+            outcomeId: f91e31d3-c455-4e50-ab5c-b3b9676a87cb
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-811fd5ca72d85f556a9138b418a16d7db6a2b8bf096a199e31dfaf6ff5cbca35
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:22
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: 53dc3b63c9fa25a27dbbceee61bdd45f72d288892960b8d42271acb92cc87a30
+        outcome:
+          actionId: sync-upstream-2-5-1-14:22
+          attempt: 1
+          claimToken: portable-811fd5ca72d85f556a9138b418a16d7db6a2b8bf096a199e31dfaf6ff5cbca35
+          inputHash: 53dc3b63c9fa25a27dbbceee61bdd45f72d288892960b8d42271acb92cc87a30
+          outcomeId: 5c6e6f57-b590-4e23-b05b-b3556d72d9b5
+          output:
+            baseCommit: 77383d3882f0311fe38d9dafbe5bdf60b40f59c8
+            deliveryAction: push
+            remote: origin
+            remoteIdentity: a52287340bab2d8aa6b40799c632e15953260b536d0f97aeb4a69c1f119ebd99
+            targetBranch: comet/sync-upstream-2-5-1-14
+            verifiedBranch: comet/sync-upstream-2-5-1-14
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 66f64d282293f15e12c74334d7f5301a323dafca876b4776f9e4d40d67b6ce96
+            outcomeId: 5c6e6f57-b590-4e23-b05b-b3556d72d9b5
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-210b2dd0dc9dad4038c99c97bd4372e5fe73c86ca08572a13095c3d1ada9b19e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: sync-upstream-2-5-1-14:23
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: c054faade0545e1cb7cf14d09f767057f8b42d6c2befc600326c227e783d96d6
+        outcome:
+          actionId: sync-upstream-2-5-1-14:23
+          attempt: 1
+          claimToken: portable-210b2dd0dc9dad4038c99c97bd4372e5fe73c86ca08572a13095c3d1ada9b19e
+          inputHash: c054faade0545e1cb7cf14d09f767057f8b42d6c2befc600326c227e783d96d6
+          outcomeId: 55bc6afb-868e-4d4e-b291-5f7b8b81cda2
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8f6127af019469c9f8eaf20142f3f4e0ac5bec2953a9b313f937e0b58bbb0f63
+            outcomeId: 55bc6afb-868e-4d4e-b291-5f7b8b81cda2
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: sync-upstream-2-5-1-14:24
+        input:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs: {}
+        inputHash: e3663e02db565fd69bc9c3a453db7f4910aacdd67f932f135d4c24820f32709f
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: sync-upstream-2-5-1-14
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      sync-upstream-2-5-1-14:1:
+        results: {}
+        sequence: 1
+      sync-upstream-2-5-1-14:11:
+        results: {}
+        sequence: 11
+      sync-upstream-2-5-1-14:13:
+        results: {}
+        sequence: 13
+      sync-upstream-2-5-1-14:14:
+        results: {}
+        sequence: 14
+      sync-upstream-2-5-1-14:16:
+        results: {}
+        sequence: 16
+      sync-upstream-2-5-1-14:18:
+        results: {}
+        sequence: 18
+      sync-upstream-2-5-1-14:20:
+        results: {}
+        sequence: 20
+      sync-upstream-2-5-1-14:22:
+        results: {}
+        sequence: 22
+      sync-upstream-2-5-1-14:23:
+        results: {}
+        sequence: 23
+      sync-upstream-2-5-1-14:24:
+        results: {}
+        sequence: 24
+      sync-upstream-2-5-1-14:4:
+        results: {}
+        sequence: 4
+      sync-upstream-2-5-1-14:5:
+        results: {}
+        sequence: 5
+      sync-upstream-2-5-1-14:7:
+        results: {}
+        sequence: 7
+      sync-upstream-2-5-1-14:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: sync-upstream-2-5-1-14:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+              ref: docs/openspec/changes/sync-upstream-2-5-1-14
+        proposalHash: 3f7c9d50d0a46628bfce20ab1a471bb3b2ed6c89059cfae23422ff78bb6b5ddd
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+          choice: approved
+          proposalHash: 3f7c9d50d0a46628bfce20ab1a471bb3b2ed6c89059cfae23422ff78bb6b5ddd
+      - id: sync-upstream-2-5-1-14:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+              handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+              proposal: |-
+                ## 候选方案
+
+                ### 1. 合并方式
+                - 采用：git merge upstream/main（保留上游为祖先，后续同步可持续复用同一 merge-base；fork 的 20 个提交不改写历史）。
+                - 备选：cherry-pick c001f54/9e528bf/92a3b74/84645de（丢失祖先关系，下次需重算差异）；rebase fork 提交（改写已推送历史，风险高）。
+
+                ### 2. 构建链（双方重复实现的 Alderis iOS 26 tab 补丁）
+                - 采用上游 patches/alderis-ios26-tab.patch + Makefile patch-deps（stage: patch-deps all；xcodebuild 加 -disableAutomaticPackageResolution）。
+                - 删除 fork 的 Scripts/patch-alderis-checkout.sh 及 Makefile 内联解析/补丁调用。
+                - 保留 fork 的 RUN_CLANG_STATIC_ANALYZER=NO 与 SILEO_APP_INSTALL_PATH/postinst 路径替换（解决不同问题）。
+
+                ### 3. .tbd 架构声明
+                - 采用上游 [arm64, arm64e]：双方都移除了模拟器架构，上游额外保留 arm64e，属于规范版本，减少后续冲突。
+
+                ### 4. 源格式校验（上游新增 hasCompatibleSourceFormat）
+                - 移植上游的 URL/scheme/host 校验到 importRepos(fromURL:)、presentAddClipBoardPrompt、handleSourceAdd 三处。
+                - 去掉上游「suite 必须为 ./ 且 components 必须为空」的限制，保留 fork 的 suite/components 源管理能力（已确认：适配保留两者）。
+
+                ### 5. Jailbreak/Bootstrap 重构
+                - 整体采用上游简化枚举与新增 Relaxin 分支，同步更新 fork 引用点；本 fork 无 Codable 持久化，rawValue 仅用于展示，重命名安全。
+
+                ### 6. 冲突解决原则
+                - fork 独有功能文件以 fork 行为为准，合入上游无关修复。
+                - 上游共享基础设施（Jailbreak/Bootstrap、DownloadManager、DatabaseManager、APTWrapper、ControlFileParserFast、Depiction*、SileoNavigationController、Info.plist）以上游为准。
+                - 双方防护性改动（NewsViewController、PackageListViewController 安全索引/并发）取并集，复用 fork 已抽出的辅助方法。
+                - PackageListManager 保留 fork 屏蔽更新过滤 + 采用上游排序比较器修正；DownloadManager 保留 fork Patcher 优先 + 采用上游损坏包/IncompatibleRepo 重构。
+                - project.pbxproj 采用 MARKETING_VERSION=2.5.1-14，保留 fork 新增文件引用（UpdateBlockManager、BlockedUpdatesViewController、RootHideCompat、测试）。
+
+                ### 7. 版本号
+                - 采用上游 2.5.1-14；父工作区未提交的 2.5.1-13 提升不进入本 change 分支。
+
+                ## 关键取舍与风险
+                - 取舍：merge 一次性解决冲突优于长期维护两套等价构建链；采用上游规范版本以降低后续同步成本。
+                - 风险：大面积文本冲突可能覆盖 fork 功能 → 逐文件解决 + 定向 diff 复核 + 构建/测试验证。
+                - 风险：patch-deps 依赖 SPM checkout 为 git 仓库；make stage 验证失败时报告，不擅自回退 fork 脚本（回退属范围变化）。
+                - 风险：Jailbreak 重命名导致编译错误 → 合并后构建并修正引用。
+                - 风险：无法设备级验证 UI → 以 xcodebuild/make stage + UpdateBlockManagerTests 作为可执行验证，并在交付说明中明确限制。
+                - 风险：上游 UIDesignRequiresCompatibility 改变 iOS 26 外观 → 属上游有意行为，保留。
+
+                ## 测试策略
+                - 合并后构建：make stage 或 xcodebuild 成功。
+                - 运行 UpdateBlockManagerTests（无法运行时记录原因与替代验证）。
+                - grep 校验 fork 功能符号（UpdateBlockManager、RepoManagementPolicy、RootHideCompat、patcherBundleIDs）仍存在。
+                - git merge-base --is-ancestor upstream/main HEAD 验证祖先关系；git diff --check 与 plutil -lint 检查格式。
+
+                ## Spec Patch
+                - 无。Open 阶段已写入 specs/source-entry-validation/spec.md（URL 合法性校验 + suite/components 支持），设计阶段不新增或改写行为规格。
+              requirementsEvidence:
+                contentHash: 9efe81bb2d5f7711a4e9bebd2bd7e8230ddd52315cc4870b7763f2b66f45af37
+                ref: docs/openspec/changes/sync-upstream-2-5-1-14
+              sourceEvidence:
+                contentHash: 11a0a26b6a962eb3aaf39567734190d1a08e4ab4f494ed8ad2ccda2c93ab237a
+                ref: docs/openspec/changes/sync-upstream-2-5-1-14
+        proposalHash: 46be9f526f4d34c886d07f252a954565ed281a3526a53fa88be96e24374f11e3
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-46be9f526f4d34c886d07f252a954565ed281a3526a53fa88be96e24374f11e3-approved
+          choice: approved
+          proposalHash: 46be9f526f4d34c886d07f252a954565ed281a3526a53fa88be96e24374f11e3
+      - id: sync-upstream-2-5-1-14:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.build.configure:
+              boundBranch: comet/sync-upstream-2-5-1-14
+              buildMode: autonomous
+              directOverride: false
+              isolation: worktree
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: direct
+        proposalHash: 08b89c480081a24a5eb517c7cf2b7467880daa28c5e4495811348746669ca483
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 333f2b1c-297c-48f4-9528-23bdf72184f7
+          choice: approved
+          proposalHash: 08b89c480081a24a5eb517c7cf2b7467880daa28c5e4495811348746669ca483
+      - id: sync-upstream-2-5-1-14:21
+        stepId: full.archive.confirm
+        sequence: 21
+        status: resolved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.archive.prepare:
+              remote: origin
+              summary: 合并 upstream 2.5.1-13/2.5.1-14 四个提交到
+                fork，保留源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态与
+                roothide 构建链修复；采用上游 Alderis patch-deps、.tbd arm64+arm64e
+                与适配后的源格式校验（保留 suite/components）。验证：make stage exit
+                0、UpdateBlockManagerTests 7/7、独立审查无 CRITICAL/IMPORTANT。归档将把
+                source-entry-validation delta spec 合入主 spec、标注 design/plan 并移动
+                change 到 archive；随后创建唯一归档提交并推送
+                origin/comet/sync-upstream-2-5-1-14（用户选择 push，不创建 PR）。
+              targetBranch: comet/sync-upstream-2-5-1-14
+        proposalHash: 18b6a3e34f332272b25f5992c4ae4e94c8970a363e473f85bd515ecf7272b060
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-18b6a3e34f332272b25f5992c4ae4e94c8970a363e473f85bd515ecf7272b060-push
+          choice: push
+          proposalHash: 18b6a3e34f332272b25f5992c4ae4e94c8970a363e473f85bd515ecf7272b060
+    evidenceWaits:
+      - id: sync-upstream-2-5-1-14:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14
+          contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+          submissionId: 9883359f-6fe6-45ab-8b7c-531316951f77
+      - id: sync-upstream-2-5-1-14:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+          contentHash: 8efc94900618129cbb57b696c8d7fd1f59ae5ebcb076984341eb8fa36ab130b2
+          submissionId: 923023f2-cb1e-484e-af46-761e0b03d5a5
+      - id: sync-upstream-2-5-1-14:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+          contentHash: 8d9e810e8ecef837ce93d365c9c0dcd19f41a7fbe6e3854a89c4a2d6526e2049
+          submissionId: c47eb585-0d22-4712-b1df-45ac246a7bec
+      - id: sync-upstream-2-5-1-14:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/a578229c-5ca7-4546-8b27-a38f9056e5bf.log
+          contentHash: bbd4841f9a94e196512ef339c6541c74fb1c50a67c5202d388a3188914654e4c
+          submissionId: feb9006e-860a-4916-a5dc-7ba22399f350
+      - id: sync-upstream-2-5-1-14:17
+        stepId: full.verify.report.evidence
+        sequence: 17
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+          contentHash: 4f3fe40701bdba35bc325dab1fae5bbbcf0133a0ce88e01aee5c391448aa269a
+          submissionId: 7ccdc66c-76e2-4a23-a29d-dde333747aea
+      - id: sync-upstream-2-5-1-14:19
+        stepId: full.verify.check.evidence
+        sequence: 19
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/37f4bb07-a9ee-40e0-b377-87cef778876a.log
+          contentHash: 70fdd7538ac05d0322a1992afa56d20a1697dcc4049cb78c89334c18f0a655e6
+          submissionId: e4bfc10c-ae31-42a7-9c8d-239c1f019930
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 43
+  sourceHash: f24b9d6d0f093562e2ef794ca9b6419f19bb002c5305f6f3195db4b5aaa72b47
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+              ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+        ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+      - choice: approved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+              handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+              proposal: |-
+                ## 候选方案
+
+                ### 1. 合并方式
+                - 采用：git merge upstream/main（保留上游为祖先，后续同步可持续复用同一 merge-base；fork 的 20 个提交不改写历史）。
+                - 备选：cherry-pick c001f54/9e528bf/92a3b74/84645de（丢失祖先关系，下次需重算差异）；rebase fork 提交（改写已推送历史，风险高）。
+
+                ### 2. 构建链（双方重复实现的 Alderis iOS 26 tab 补丁）
+                - 采用上游 patches/alderis-ios26-tab.patch + Makefile patch-deps（stage: patch-deps all；xcodebuild 加 -disableAutomaticPackageResolution）。
+                - 删除 fork 的 Scripts/patch-alderis-checkout.sh 及 Makefile 内联解析/补丁调用。
+                - 保留 fork 的 RUN_CLANG_STATIC_ANALYZER=NO 与 SILEO_APP_INSTALL_PATH/postinst 路径替换（解决不同问题）。
+
+                ### 3. .tbd 架构声明
+                - 采用上游 [arm64, arm64e]：双方都移除了模拟器架构，上游额外保留 arm64e，属于规范版本，减少后续冲突。
+
+                ### 4. 源格式校验（上游新增 hasCompatibleSourceFormat）
+                - 移植上游的 URL/scheme/host 校验到 importRepos(fromURL:)、presentAddClipBoardPrompt、handleSourceAdd 三处。
+                - 去掉上游「suite 必须为 ./ 且 components 必须为空」的限制，保留 fork 的 suite/components 源管理能力（已确认：适配保留两者）。
+
+                ### 5. Jailbreak/Bootstrap 重构
+                - 整体采用上游简化枚举与新增 Relaxin 分支，同步更新 fork 引用点；本 fork 无 Codable 持久化，rawValue 仅用于展示，重命名安全。
+
+                ### 6. 冲突解决原则
+                - fork 独有功能文件以 fork 行为为准，合入上游无关修复。
+                - 上游共享基础设施（Jailbreak/Bootstrap、DownloadManager、DatabaseManager、APTWrapper、ControlFileParserFast、Depiction*、SileoNavigationController、Info.plist）以上游为准。
+                - 双方防护性改动（NewsViewController、PackageListViewController 安全索引/并发）取并集，复用 fork 已抽出的辅助方法。
+                - PackageListManager 保留 fork 屏蔽更新过滤 + 采用上游排序比较器修正；DownloadManager 保留 fork Patcher 优先 + 采用上游损坏包/IncompatibleRepo 重构。
+                - project.pbxproj 采用 MARKETING_VERSION=2.5.1-14，保留 fork 新增文件引用（UpdateBlockManager、BlockedUpdatesViewController、RootHideCompat、测试）。
+
+                ### 7. 版本号
+                - 采用上游 2.5.1-14；父工作区未提交的 2.5.1-13 提升不进入本 change 分支。
+
+                ## 关键取舍与风险
+                - 取舍：merge 一次性解决冲突优于长期维护两套等价构建链；采用上游规范版本以降低后续同步成本。
+                - 风险：大面积文本冲突可能覆盖 fork 功能 → 逐文件解决 + 定向 diff 复核 + 构建/测试验证。
+                - 风险：patch-deps 依赖 SPM checkout 为 git 仓库；make stage 验证失败时报告，不擅自回退 fork 脚本（回退属范围变化）。
+                - 风险：Jailbreak 重命名导致编译错误 → 合并后构建并修正引用。
+                - 风险：无法设备级验证 UI → 以 xcodebuild/make stage + UpdateBlockManagerTests 作为可执行验证，并在交付说明中明确限制。
+                - 风险：上游 UIDesignRequiresCompatibility 改变 iOS 26 外观 → 属上游有意行为，保留。
+
+                ## 测试策略
+                - 合并后构建：make stage 或 xcodebuild 成功。
+                - 运行 UpdateBlockManagerTests（无法运行时记录原因与替代验证）。
+                - grep 校验 fork 功能符号（UpdateBlockManager、RepoManagementPolicy、RootHideCompat、patcherBundleIDs）仍存在。
+                - git merge-base --is-ancestor upstream/main HEAD 验证祖先关系；git diff --check 与 plutil -lint 检查格式。
+
+                ## Spec Patch
+                - 无。Open 阶段已写入 specs/source-entry-validation/spec.md（URL 合法性校验 + suite/components 支持），设计阶段不新增或改写行为规格。
+              requirementsEvidence:
+                contentHash: 9efe81bb2d5f7711a4e9bebd2bd7e8230ddd52315cc4870b7763f2b66f45af37
+                ref: docs/openspec/changes/sync-upstream-2-5-1-14
+              sourceEvidence:
+                contentHash: 11a0a26b6a962eb3aaf39567734190d1a08e4ab4f494ed8ad2ccda2c93ab237a
+                ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - handoffContext: docs/openspec/changes/sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+        handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+        proposal: |-
+          ## 候选方案
+
+          ### 1. 合并方式
+          - 采用：git merge upstream/main（保留上游为祖先，后续同步可持续复用同一 merge-base；fork 的 20 个提交不改写历史）。
+          - 备选：cherry-pick c001f54/9e528bf/92a3b74/84645de（丢失祖先关系，下次需重算差异）；rebase fork 提交（改写已推送历史，风险高）。
+
+          ### 2. 构建链（双方重复实现的 Alderis iOS 26 tab 补丁）
+          - 采用上游 patches/alderis-ios26-tab.patch + Makefile patch-deps（stage: patch-deps all；xcodebuild 加 -disableAutomaticPackageResolution）。
+          - 删除 fork 的 Scripts/patch-alderis-checkout.sh 及 Makefile 内联解析/补丁调用。
+          - 保留 fork 的 RUN_CLANG_STATIC_ANALYZER=NO 与 SILEO_APP_INSTALL_PATH/postinst 路径替换（解决不同问题）。
+
+          ### 3. .tbd 架构声明
+          - 采用上游 [arm64, arm64e]：双方都移除了模拟器架构，上游额外保留 arm64e，属于规范版本，减少后续冲突。
+
+          ### 4. 源格式校验（上游新增 hasCompatibleSourceFormat）
+          - 移植上游的 URL/scheme/host 校验到 importRepos(fromURL:)、presentAddClipBoardPrompt、handleSourceAdd 三处。
+          - 去掉上游「suite 必须为 ./ 且 components 必须为空」的限制，保留 fork 的 suite/components 源管理能力（已确认：适配保留两者）。
+
+          ### 5. Jailbreak/Bootstrap 重构
+          - 整体采用上游简化枚举与新增 Relaxin 分支，同步更新 fork 引用点；本 fork 无 Codable 持久化，rawValue 仅用于展示，重命名安全。
+
+          ### 6. 冲突解决原则
+          - fork 独有功能文件以 fork 行为为准，合入上游无关修复。
+          - 上游共享基础设施（Jailbreak/Bootstrap、DownloadManager、DatabaseManager、APTWrapper、ControlFileParserFast、Depiction*、SileoNavigationController、Info.plist）以上游为准。
+          - 双方防护性改动（NewsViewController、PackageListViewController 安全索引/并发）取并集，复用 fork 已抽出的辅助方法。
+          - PackageListManager 保留 fork 屏蔽更新过滤 + 采用上游排序比较器修正；DownloadManager 保留 fork Patcher 优先 + 采用上游损坏包/IncompatibleRepo 重构。
+          - project.pbxproj 采用 MARKETING_VERSION=2.5.1-14，保留 fork 新增文件引用（UpdateBlockManager、BlockedUpdatesViewController、RootHideCompat、测试）。
+
+          ### 7. 版本号
+          - 采用上游 2.5.1-14；父工作区未提交的 2.5.1-13 提升不进入本 change 分支。
+
+          ## 关键取舍与风险
+          - 取舍：merge 一次性解决冲突优于长期维护两套等价构建链；采用上游规范版本以降低后续同步成本。
+          - 风险：大面积文本冲突可能覆盖 fork 功能 → 逐文件解决 + 定向 diff 复核 + 构建/测试验证。
+          - 风险：patch-deps 依赖 SPM checkout 为 git 仓库；make stage 验证失败时报告，不擅自回退 fork 脚本（回退属范围变化）。
+          - 风险：Jailbreak 重命名导致编译错误 → 合并后构建并修正引用。
+          - 风险：无法设备级验证 UI → 以 xcodebuild/make stage + UpdateBlockManagerTests 作为可执行验证，并在交付说明中明确限制。
+          - 风险：上游 UIDesignRequiresCompatibility 改变 iOS 26 外观 → 属上游有意行为，保留。
+
+          ## 测试策略
+          - 合并后构建：make stage 或 xcodebuild 成功。
+          - 运行 UpdateBlockManagerTests（无法运行时记录原因与替代验证）。
+          - grep 校验 fork 功能符号（UpdateBlockManager、RepoManagementPolicy、RootHideCompat、patcherBundleIDs）仍存在。
+          - git merge-base --is-ancestor upstream/main HEAD 验证祖先关系；git diff --check 与 plutil -lint 检查格式。
+
+          ## Spec Patch
+          - 无。Open 阶段已写入 specs/source-entry-validation/spec.md（URL 合法性校验 + suite/components 支持），设计阶段不新增或改写行为规格。
+        requirementsEvidence:
+          contentHash: 9efe81bb2d5f7711a4e9bebd2bd7e8230ddd52315cc4870b7763f2b66f45af37
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14
+        sourceEvidence:
+          contentHash: 11a0a26b6a962eb3aaf39567734190d1a08e4ab4f494ed8ad2ccda2c93ab237a
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - designDoc: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+      - contentHash: 8efc94900618129cbb57b696c8d7fd1f59ae5ebcb076984341eb8fa36ab130b2
+        ref: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+      - boundBranch: comet/sync-upstream-2-5-1-14
+        buildMode: autonomous
+        directOverride: false
+        isolation: worktree
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: direct
+      - choice: approved
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.build.configure:
+              boundBranch: comet/sync-upstream-2-5-1-14
+              buildMode: autonomous
+              directOverride: false
+              isolation: worktree
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: direct
+      - designEvidence:
+          contentHash: 8efc94900618129cbb57b696c8d7fd1f59ae5ebcb076984341eb8fa36ab130b2
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+        plan: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+        planEvidence:
+          contentHash: 8d9e810e8ecef837ce93d365c9c0dcd19f41a7fbe6e3854a89c4a2d6526e2049
+          ref: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+        taskRevision: 82dd02ec82cdb85f1f3ac70ae29792663a0ba9a19becfe44a8d3531790d93ea1
+      - contentHash: 8d9e810e8ecef837ce93d365c9c0dcd19f41a7fbe6e3854a89c4a2d6526e2049
+        ref: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+      - event: build-complete
+      - argv:
+          - make
+          - stage
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: bbd4841f9a94e196512ef339c6541c74fb1c50a67c5202d388a3188914654e4c
+        cwd: .
+        environment: 8a30df5636c690e29071d6897dc2f56294431bb2144de09b5c2f9fe11075cae4
+        exitCode: 0
+        inputAfter: 76a847fac3554df05cb0cdc88ed83e6c9a185472f5cb94206869c698329c094b
+        inputBefore: 76a847fac3554df05cb0cdc88ed83e6c9a185472f5cb94206869c698329c094b
+        manifestHash: 6c5b44998348843ab2a82456041270dac555eb50a9652cef4841ba62e2efb38e
+        manifestRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/99fa5922-da19-41fa-8d74-defbc7273919.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/a578229c-5ca7-4546-8b27-a38f9056e5bf.log
+        reusable: true
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: bbd4841f9a94e196512ef339c6541c74fb1c50a67c5202d388a3188914654e4c
+        ref: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/a578229c-5ca7-4546-8b27-a38f9056e5bf.log
+      - contentHash: 4f3fe40701bdba35bc325dab1fae5bbbcf0133a0ce88e01aee5c391448aa269a
+        ref: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+      - argv:
+          - xcodebuild
+          - test
+          - -project
+          - Sileo.xcodeproj
+          - -scheme
+          - Sileo (Test Handler)
+          - -destination
+          - platform=iOS Simulator,name=iPhone 16 Pro
+          - -derivedDataPath
+          - /var/folders/t9/zrl7l3cn5sj36jcdv8mxp8_40000gn/T/sileo
+          - -only-testing:Sileo Backend Tests/UpdateBlockManagerTests
+          - CODE_SIGNING_ALLOWED=NO
+          - -disableAutomaticPackageResolution
+        changedDuringExecution: []
+        checkEpoch: 3
+        contentHash: 70fdd7538ac05d0322a1992afa56d20a1697dcc4049cb78c89334c18f0a655e6
+        cwd: .
+        deliveryInputs: {}
+        environment: d80ed8cfd0a282231739611d7b8533a025bc7c20610661203d8616b6a04230c2
+        exitCode: 0
+        inputAfter: 3cc59bec0503628b95bedacd0186ab9d55c6b74e4c0b3e7bbc80bf06157b5d4d
+        inputBefore: 3cc59bec0503628b95bedacd0186ab9d55c6b74e4c0b3e7bbc80bf06157b5d4d
+        manifestHash: 9f46a39e91a8664f668ba88c39f7c29ecf98962cda60116dc096bf0dc4cbd6e3
+        manifestRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/233e5c38-3aee-4c3e-a37d-52c148986be9.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/37f4bb07-a9ee-40e0-b377-87cef778876a.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 70fdd7538ac05d0322a1992afa56d20a1697dcc4049cb78c89334c18f0a655e6
+        ref: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/37f4bb07-a9ee-40e0-b377-87cef778876a.log
+      - choice: push
+        proposal:
+          input:
+            change: sync-upstream-2-5-1-14
+            changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+          outputs:
+            full.archive.prepare:
+              remote: origin
+              summary: 合并 upstream 2.5.1-13/2.5.1-14 四个提交到
+                fork，保留源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态与
+                roothide 构建链修复；采用上游 Alderis patch-deps、.tbd arm64+arm64e
+                与适配后的源格式校验（保留 suite/components）。验证：make stage exit
+                0、UpdateBlockManagerTests 7/7、独立审查无 CRITICAL/IMPORTANT。归档将把
+                source-entry-validation delta spec 合入主 spec、标注 design/plan 并移动
+                change 到 archive；随后创建唯一归档提交并推送
+                origin/comet/sync-upstream-2-5-1-14（用户选择 push，不创建 PR）。
+              targetBranch: comet/sync-upstream-2-5-1-14
+      - remote: origin
+        summary: 合并 upstream 2.5.1-13/2.5.1-14 四个提交到
+          fork，保留源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态与 roothide
+          构建链修复；采用上游 Alderis patch-deps、.tbd arm64+arm64e 与适配后的源格式校验（保留
+          suite/components）。验证：make stage exit 0、UpdateBlockManagerTests
+          7/7、独立审查无 CRITICAL/IMPORTANT。归档将把 source-entry-validation delta spec
+          合入主 spec、标注 design/plan 并移动 change 到 archive；随后创建唯一归档提交并推送
+          origin/comet/sync-upstream-2-5-1-14（用户选择 push，不创建 PR）。
+        targetBranch: comet/sync-upstream-2-5-1-14
+      - baseCommit: 77383d3882f0311fe38d9dafbe5bdf60b40f59c8
+        deliveryAction: push
+        remote: origin
+        remoteIdentity: a52287340bab2d8aa6b40799c632e15953260b536d0f97aeb4a69c1f119ebd99
+        targetBranch: comet/sync-upstream-2-5-1-14
+        verifiedBranch: comet/sync-upstream-2-5-1-14
+      - archiveDirectory: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14
+      - sequence: 9
+        value:
+          boundBranch: comet/sync-upstream-2-5-1-14
+          buildMode: autonomous
+          directOverride: false
+          isolation: worktree
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: direct
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: sync-upstream-2-5-1-14
+              changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+            outputs:
+              full.build.configure:
+                boundBranch: comet/sync-upstream-2-5-1-14
+                buildMode: autonomous
+                directOverride: false
+                isolation: worktree
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: direct
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: sync-upstream-2-5-1-14
+              changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+                handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+                proposal: |-
+                  ## 候选方案
+
+                  ### 1. 合并方式
+                  - 采用：git merge upstream/main（保留上游为祖先，后续同步可持续复用同一 merge-base；fork 的 20 个提交不改写历史）。
+                  - 备选：cherry-pick c001f54/9e528bf/92a3b74/84645de（丢失祖先关系，下次需重算差异）；rebase fork 提交（改写已推送历史，风险高）。
+
+                  ### 2. 构建链（双方重复实现的 Alderis iOS 26 tab 补丁）
+                  - 采用上游 patches/alderis-ios26-tab.patch + Makefile patch-deps（stage: patch-deps all；xcodebuild 加 -disableAutomaticPackageResolution）。
+                  - 删除 fork 的 Scripts/patch-alderis-checkout.sh 及 Makefile 内联解析/补丁调用。
+                  - 保留 fork 的 RUN_CLANG_STATIC_ANALYZER=NO 与 SILEO_APP_INSTALL_PATH/postinst 路径替换（解决不同问题）。
+
+                  ### 3. .tbd 架构声明
+                  - 采用上游 [arm64, arm64e]：双方都移除了模拟器架构，上游额外保留 arm64e，属于规范版本，减少后续冲突。
+
+                  ### 4. 源格式校验（上游新增 hasCompatibleSourceFormat）
+                  - 移植上游的 URL/scheme/host 校验到 importRepos(fromURL:)、presentAddClipBoardPrompt、handleSourceAdd 三处。
+                  - 去掉上游「suite 必须为 ./ 且 components 必须为空」的限制，保留 fork 的 suite/components 源管理能力（已确认：适配保留两者）。
+
+                  ### 5. Jailbreak/Bootstrap 重构
+                  - 整体采用上游简化枚举与新增 Relaxin 分支，同步更新 fork 引用点；本 fork 无 Codable 持久化，rawValue 仅用于展示，重命名安全。
+
+                  ### 6. 冲突解决原则
+                  - fork 独有功能文件以 fork 行为为准，合入上游无关修复。
+                  - 上游共享基础设施（Jailbreak/Bootstrap、DownloadManager、DatabaseManager、APTWrapper、ControlFileParserFast、Depiction*、SileoNavigationController、Info.plist）以上游为准。
+                  - 双方防护性改动（NewsViewController、PackageListViewController 安全索引/并发）取并集，复用 fork 已抽出的辅助方法。
+                  - PackageListManager 保留 fork 屏蔽更新过滤 + 采用上游排序比较器修正；DownloadManager 保留 fork Patcher 优先 + 采用上游损坏包/IncompatibleRepo 重构。
+                  - project.pbxproj 采用 MARKETING_VERSION=2.5.1-14，保留 fork 新增文件引用（UpdateBlockManager、BlockedUpdatesViewController、RootHideCompat、测试）。
+
+                  ### 7. 版本号
+                  - 采用上游 2.5.1-14；父工作区未提交的 2.5.1-13 提升不进入本 change 分支。
+
+                  ## 关键取舍与风险
+                  - 取舍：merge 一次性解决冲突优于长期维护两套等价构建链；采用上游规范版本以降低后续同步成本。
+                  - 风险：大面积文本冲突可能覆盖 fork 功能 → 逐文件解决 + 定向 diff 复核 + 构建/测试验证。
+                  - 风险：patch-deps 依赖 SPM checkout 为 git 仓库；make stage 验证失败时报告，不擅自回退 fork 脚本（回退属范围变化）。
+                  - 风险：Jailbreak 重命名导致编译错误 → 合并后构建并修正引用。
+                  - 风险：无法设备级验证 UI → 以 xcodebuild/make stage + UpdateBlockManagerTests 作为可执行验证，并在交付说明中明确限制。
+                  - 风险：上游 UIDesignRequiresCompatibility 改变 iOS 26 外观 → 属上游有意行为，保留。
+
+                  ## 测试策略
+                  - 合并后构建：make stage 或 xcodebuild 成功。
+                  - 运行 UpdateBlockManagerTests（无法运行时记录原因与替代验证）。
+                  - grep 校验 fork 功能符号（UpdateBlockManager、RepoManagementPolicy、RootHideCompat、patcherBundleIDs）仍存在。
+                  - git merge-base --is-ancestor upstream/main HEAD 验证祖先关系；git diff --check 与 plutil -lint 检查格式。
+
+                  ## Spec Patch
+                  - 无。Open 阶段已写入 specs/source-entry-validation/spec.md（URL 合法性校验 + suite/components 支持），设计阶段不新增或改写行为规格。
+                requirementsEvidence:
+                  contentHash: 9efe81bb2d5f7711a4e9bebd2bd7e8230ddd52315cc4870b7763f2b66f45af37
+                  ref: docs/openspec/changes/sync-upstream-2-5-1-14
+                sourceEvidence:
+                  contentHash: 11a0a26b6a962eb3aaf39567734190d1a08e4ab4f494ed8ad2ccda2c93ab237a
+                  ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+      - sequence: 8
+        value:
+          contentHash: 8efc94900618129cbb57b696c8d7fd1f59ae5ebcb076984341eb8fa36ab130b2
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/sync-upstream-2-5-1-14/.comet/handoff/design-context.json
+          handoffHash: 92aab94bd1114e5d6ff10a9faa3cd548e029e3f653ac8713e2cbddd139217fcf
+          proposal: |-
+            ## 候选方案
+
+            ### 1. 合并方式
+            - 采用：git merge upstream/main（保留上游为祖先，后续同步可持续复用同一 merge-base；fork 的 20 个提交不改写历史）。
+            - 备选：cherry-pick c001f54/9e528bf/92a3b74/84645de（丢失祖先关系，下次需重算差异）；rebase fork 提交（改写已推送历史，风险高）。
+
+            ### 2. 构建链（双方重复实现的 Alderis iOS 26 tab 补丁）
+            - 采用上游 patches/alderis-ios26-tab.patch + Makefile patch-deps（stage: patch-deps all；xcodebuild 加 -disableAutomaticPackageResolution）。
+            - 删除 fork 的 Scripts/patch-alderis-checkout.sh 及 Makefile 内联解析/补丁调用。
+            - 保留 fork 的 RUN_CLANG_STATIC_ANALYZER=NO 与 SILEO_APP_INSTALL_PATH/postinst 路径替换（解决不同问题）。
+
+            ### 3. .tbd 架构声明
+            - 采用上游 [arm64, arm64e]：双方都移除了模拟器架构，上游额外保留 arm64e，属于规范版本，减少后续冲突。
+
+            ### 4. 源格式校验（上游新增 hasCompatibleSourceFormat）
+            - 移植上游的 URL/scheme/host 校验到 importRepos(fromURL:)、presentAddClipBoardPrompt、handleSourceAdd 三处。
+            - 去掉上游「suite 必须为 ./ 且 components 必须为空」的限制，保留 fork 的 suite/components 源管理能力（已确认：适配保留两者）。
+
+            ### 5. Jailbreak/Bootstrap 重构
+            - 整体采用上游简化枚举与新增 Relaxin 分支，同步更新 fork 引用点；本 fork 无 Codable 持久化，rawValue 仅用于展示，重命名安全。
+
+            ### 6. 冲突解决原则
+            - fork 独有功能文件以 fork 行为为准，合入上游无关修复。
+            - 上游共享基础设施（Jailbreak/Bootstrap、DownloadManager、DatabaseManager、APTWrapper、ControlFileParserFast、Depiction*、SileoNavigationController、Info.plist）以上游为准。
+            - 双方防护性改动（NewsViewController、PackageListViewController 安全索引/并发）取并集，复用 fork 已抽出的辅助方法。
+            - PackageListManager 保留 fork 屏蔽更新过滤 + 采用上游排序比较器修正；DownloadManager 保留 fork Patcher 优先 + 采用上游损坏包/IncompatibleRepo 重构。
+            - project.pbxproj 采用 MARKETING_VERSION=2.5.1-14，保留 fork 新增文件引用（UpdateBlockManager、BlockedUpdatesViewController、RootHideCompat、测试）。
+
+            ### 7. 版本号
+            - 采用上游 2.5.1-14；父工作区未提交的 2.5.1-13 提升不进入本 change 分支。
+
+            ## 关键取舍与风险
+            - 取舍：merge 一次性解决冲突优于长期维护两套等价构建链；采用上游规范版本以降低后续同步成本。
+            - 风险：大面积文本冲突可能覆盖 fork 功能 → 逐文件解决 + 定向 diff 复核 + 构建/测试验证。
+            - 风险：patch-deps 依赖 SPM checkout 为 git 仓库；make stage 验证失败时报告，不擅自回退 fork 脚本（回退属范围变化）。
+            - 风险：Jailbreak 重命名导致编译错误 → 合并后构建并修正引用。
+            - 风险：无法设备级验证 UI → 以 xcodebuild/make stage + UpdateBlockManagerTests 作为可执行验证，并在交付说明中明确限制。
+            - 风险：上游 UIDesignRequiresCompatibility 改变 iOS 26 外观 → 属上游有意行为，保留。
+
+            ## 测试策略
+            - 合并后构建：make stage 或 xcodebuild 成功。
+            - 运行 UpdateBlockManagerTests（无法运行时记录原因与替代验证）。
+            - grep 校验 fork 功能符号（UpdateBlockManager、RepoManagementPolicy、RootHideCompat、patcherBundleIDs）仍存在。
+            - git merge-base --is-ancestor upstream/main HEAD 验证祖先关系；git diff --check 与 plutil -lint 检查格式。
+
+            ## Spec Patch
+            - 无。Open 阶段已写入 specs/source-entry-validation/spec.md（URL 合法性校验 + suite/components 支持），设计阶段不新增或改写行为规格。
+          requirementsEvidence:
+            contentHash: 9efe81bb2d5f7711a4e9bebd2bd7e8230ddd52315cc4870b7763f2b66f45af37
+            ref: docs/openspec/changes/sync-upstream-2-5-1-14
+          sourceEvidence:
+            contentHash: 11a0a26b6a962eb3aaf39567734190d1a08e4ab4f494ed8ad2ccda2c93ab237a
+            ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: sync-upstream-2-5-1-14
+              changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+                ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - sequence: 2
+        value:
+          contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+          ref: docs/openspec/changes/sync-upstream-2-5-1-14
+      - sequence: 4
+        value:
+          contentHash: 41de85d847c261fcf66811f2670458eca61d867aa7ae698e661d96731e768250
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: 8efc94900618129cbb57b696c8d7fd1f59ae5ebcb076984341eb8fa36ab130b2
+            ref: docs/openspec/changes/sync-upstream-2-5-1-14/design.md
+          plan: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+          planEvidence:
+            contentHash: 8d9e810e8ecef837ce93d365c9c0dcd19f41a7fbe6e3854a89c4a2d6526e2049
+            ref: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+          taskRevision: 82dd02ec82cdb85f1f3ac70ae29792663a0ba9a19becfe44a8d3531790d93ea1
+      - sequence: 12
+        value:
+          contentHash: 8d9e810e8ecef837ce93d365c9c0dcd19f41a7fbe6e3854a89c4a2d6526e2049
+          ref: docs/superpowers/plans/2026-10-28-sync-upstream-2-5-1-14.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - make
+            - stage
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: bbd4841f9a94e196512ef339c6541c74fb1c50a67c5202d388a3188914654e4c
+          cwd: .
+          environment: 8a30df5636c690e29071d6897dc2f56294431bb2144de09b5c2f9fe11075cae4
+          exitCode: 0
+          inputAfter: 76a847fac3554df05cb0cdc88ed83e6c9a185472f5cb94206869c698329c094b
+          inputBefore: 76a847fac3554df05cb0cdc88ed83e6c9a185472f5cb94206869c698329c094b
+          manifestHash: 6c5b44998348843ab2a82456041270dac555eb50a9652cef4841ba62e2efb38e
+          manifestRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/99fa5922-da19-41fa-8d74-defbc7273919.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/a578229c-5ca7-4546-8b27-a38f9056e5bf.log
+          reusable: true
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: bbd4841f9a94e196512ef339c6541c74fb1c50a67c5202d388a3188914654e4c
+          ref: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/a578229c-5ca7-4546-8b27-a38f9056e5bf.log
+      - sequence: 17
+        value:
+          contentHash: 4f3fe40701bdba35bc325dab1fae5bbbcf0133a0ce88e01aee5c391448aa269a
+          ref: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+      - sequence: 16
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-10-28-sync-upstream-2-5-1-14-verify.md
+      - sequence: 18
+        value:
+          argv:
+            - xcodebuild
+            - test
+            - -project
+            - Sileo.xcodeproj
+            - -scheme
+            - Sileo (Test Handler)
+            - -destination
+            - platform=iOS Simulator,name=iPhone 16 Pro
+            - -derivedDataPath
+            - /var/folders/t9/zrl7l3cn5sj36jcdv8mxp8_40000gn/T/sileo
+            - -only-testing:Sileo Backend Tests/UpdateBlockManagerTests
+            - CODE_SIGNING_ALLOWED=NO
+            - -disableAutomaticPackageResolution
+          changedDuringExecution: []
+          checkEpoch: 3
+          contentHash: 70fdd7538ac05d0322a1992afa56d20a1697dcc4049cb78c89334c18f0a655e6
+          cwd: .
+          deliveryInputs: {}
+          environment: d80ed8cfd0a282231739611d7b8533a025bc7c20610661203d8616b6a04230c2
+          exitCode: 0
+          inputAfter: 3cc59bec0503628b95bedacd0186ab9d55c6b74e4c0b3e7bbc80bf06157b5d4d
+          inputBefore: 3cc59bec0503628b95bedacd0186ab9d55c6b74e4c0b3e7bbc80bf06157b5d4d
+          manifestHash: 9f46a39e91a8664f668ba88c39f7c29ecf98962cda60116dc096bf0dc4cbd6e3
+          manifestRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/233e5c38-3aee-4c3e-a37d-52c148986be9.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/37f4bb07-a9ee-40e0-b377-87cef778876a.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 19
+        value:
+          contentHash: 70fdd7538ac05d0322a1992afa56d20a1697dcc4049cb78c89334c18f0a655e6
+          ref: .comet/runtime/classic-sdk-checks/eb32938a0bbc20192b0587a416078ac9f4bcdd5fede056f8e791cb92bc5f116e/37f4bb07-a9ee-40e0-b377-87cef778876a.log
+      - sequence: 21
+        value:
+          choice: push
+          proposal:
+            input:
+              change: sync-upstream-2-5-1-14
+              changeDir: docs/openspec/changes/sync-upstream-2-5-1-14
+            outputs:
+              full.archive.prepare:
+                remote: origin
+                summary: 合并 upstream 2.5.1-13/2.5.1-14 四个提交到
+                  fork，保留源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态与
+                  roothide 构建链修复；采用上游 Alderis patch-deps、.tbd arm64+arm64e
+                  与适配后的源格式校验（保留 suite/components）。验证：make stage exit
+                  0、UpdateBlockManagerTests 7/7、独立审查无 CRITICAL/IMPORTANT。归档将把
+                  source-entry-validation delta spec 合入主 spec、标注 design/plan 并移动
+                  change 到 archive；随后创建唯一归档提交并推送
+                  origin/comet/sync-upstream-2-5-1-14（用户选择 push，不创建 PR）。
+                targetBranch: comet/sync-upstream-2-5-1-14
+      - sequence: 20
+        value:
+          remote: origin
+          summary: 合并 upstream 2.5.1-13/2.5.1-14 四个提交到
+            fork，保留源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态与 roothide
+            构建链修复；采用上游 Alderis patch-deps、.tbd arm64+arm64e 与适配后的源格式校验（保留
+            suite/components）。验证：make stage exit 0、UpdateBlockManagerTests
+            7/7、独立审查无 CRITICAL/IMPORTANT。归档将把 source-entry-validation delta spec
+            合入主 spec、标注 design/plan 并移动 change 到 archive；随后创建唯一归档提交并推送
+            origin/comet/sync-upstream-2-5-1-14（用户选择 push，不创建 PR）。
+          targetBranch: comet/sync-upstream-2-5-1-14
+      - sequence: 22
+        value:
+          baseCommit: 77383d3882f0311fe38d9dafbe5bdf60b40f59c8
+          deliveryAction: push
+          remote: origin
+          remoteIdentity: a52287340bab2d8aa6b40799c632e15953260b536d0f97aeb4a69c1f119ebd99
+          targetBranch: comet/sync-upstream-2-5-1-14
+          verifiedBranch: comet/sync-upstream-2-5-1-14
+      - sequence: 23
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-10-28-sync-upstream-2-5-1-14
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: null
+        right: 39
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 40
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 41
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 42
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: 45
+        right: 39
+        height: 2
+      - key: full.verify.check
+        value: 17
+        left: 44
+        right: 46
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 47
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 20
+        left: 50
+        right: 51
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 14
+        left: 52
+        right: 53
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 54
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 55
+        right: 48
+        height: 5
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: 57
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 58
+        right: 51
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 53
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 59
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 61
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 22
+        left: 63
+        right: 64
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 65
+        right: 51
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 66
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 67
+        right: 48
+        height: 5
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 70
+        height: 2
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 72
+        right: 73
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 75
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 76
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 71
+        right: 77
+        height: 4
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: 79
+        right: 80
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 81
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 82
+        right: 77
+        height: 4
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 84
+        height: 2
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: 80
+        height: 2
+      - key: full.build.plan
+        value: 33
+        left: 85
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 87
+        right: 77
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 89
+        right: 90
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 91
+        right: 84
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 92
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 77
+        height: 5
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: 96
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: 97
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 98
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 99
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 102
+        right: 96
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 101
+        right: 103
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 104
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 43
+        left: 107
+        right: 108
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 90
+        right: 84
+        height: 2
+      - key: full.build.check.evidence
+        value: 37
+        left: 109
+        right: 110
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 111
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 112
+        right: 105
+        height: 5
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: 114
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 115
+        right: 108
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 110
+        right: 86
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 116
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 118
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 45
+        left: 120
+        right: 121
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 122
+        right: 108
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 123
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 124
+        right: 105
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 127
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 129
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 132
+        right: 133
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 134
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 136
+        right: 137
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: 138
+        right: 133
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 139
+        right: 130
+        height: 4
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: 141
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 145
+        height: 2
+      - key: full.open
+        value: 29
+        left: 143
+        right: 146
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 149
+        right: 150
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 148
+        right: 151
+        height: 3
+      - key: full.open
+        value: 29
+        left: 152
+        right: 146
+        height: 4
+      - key: full.archive.prepare
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: 154
+        right: 155
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: 158
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: 157
+        right: 159
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: 156
+        right: 160
+        height: 4
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 162
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 164
+        right: 165
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 163
+        right: 166
+        height: 3
+      - key: full.open
+        value: 29
+        left: 151
+        right: 167
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 161
+        right: 168
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 171
+        right: 172
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 175
+        height: 2
+      - key: full.open
+        value: 29
+        left: 173
+        right: 176
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 178
+        right: 179
+        height: 2
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 181
+        right: 182
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 180
+        right: 183
+        height: 3
+      - key: full.open
+        value: 29
+        left: 184
+        right: 176
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: 186
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: 188
+        right: 189
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 187
+        right: 190
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 176
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 191
+        right: 192
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 194
+        right: 195
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 196
+        right: 190
+        height: 3
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: 198
+        height: 2
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 199
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 200
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 201
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 203
+        height: 2
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: 205
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 204
+        right: 206
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 207
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 208
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 43
+      - 49
+      - 56
+      - 62
+      - 68
+      - 78
+      - 83
+      - 88
+      - 94
+      - 100
+      - 106
+      - 113
+      - 119
+      - 125
+      - 128
+      - 131
+      - 135
+      - 140
+      - 142
+      - 147
+      - 153
+      - 169
+      - 170
+      - 177
+      - 185
+      - 193
+      - 202
+      - 209
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:11
+          - results
+        map: 14
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:13
+          - results
+        map: 15
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:14
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:16
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:18
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:20
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:22
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:23
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:24
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:4
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:5
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:7
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - sync-upstream-2-5-1-14:9
+          - results
+        map: 26
+      - path:
+          - outputs
+        map: 22
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 27
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 28
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 29
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 30
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 31
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 32
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 33
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 34
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 35
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 36
+  storageHash: 2e33c650861ed32e793cee32cfe5763bf329ada93ae43725aff32e6c8f9009a1
+check_epoch: 6
