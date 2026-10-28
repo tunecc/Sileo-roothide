@@ -11,10 +11,10 @@
 
 ## 2. 验证合并结果
 
-- [ ] 2.1 运行 iOS 设备构建（`xcodebuild` 或 `make stage` 等价命令，`CODE_SIGNING_ALLOWED=NO`），确认 Swift 与 C/ObjC 全部编译通过；验证：记录实际命令与成功输出，任何编译错误必须修复后重跑 <!-- comet-task:83b9cad4-0c91-4da0-8f81-6e959c7915a4 -->
-- [ ] 2.2 运行现有测试（`Sileo Backend Tests` 中的 `UpdateBlockManagerTests`）；验证：记录测试命令与结果；若环境无法运行测试，记录具体原因与已做的替代验证 <!-- comet-task:ff2de694-6c19-4c69-898a-0fff1b57dbaf -->
-- [ ] 2.3 核对 fork 功能完整性：确认源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态修复、postinst/giveMeRoot 路径修复的代码均保留；验证：对关键符号与文件做 grep 清单检查并记录结果 <!-- comet-task:da85bf00-0641-4454-882d-0e7d217ef702 -->
-- [ ] 2.4 确认合并关系与工作区状态：`git merge-base --is-ancestor upstream/main HEAD` 成功，冲突标记与意外文件为零；验证：命令退出码为 0，`git status` 仅包含本 change 的预期文件 <!-- comet-task:6c451cd0-551f-47fc-a220-b59f3c2eec3c -->
+- [x] 2.1 运行 iOS 设备构建（`xcodebuild` 或 `make stage` 等价命令，`CODE_SIGNING_ALLOWED=NO`），确认 Swift 与 C/ObjC 全部编译通过；验证：记录实际命令与成功输出，任何编译错误必须修复后重跑 <!-- comet-task:83b9cad4-0c91-4da0-8f81-6e959c7915a4 -->
+- [x] 2.2 运行现有测试（`Sileo Backend Tests` 中的 `UpdateBlockManagerTests`）；验证：记录测试命令与结果；若环境无法运行测试，记录具体原因与已做的替代验证 <!-- comet-task:ff2de694-6c19-4c69-898a-0fff1b57dbaf -->
+- [x] 2.3 核对 fork 功能完整性：确认源管理、屏蔽更新、RootHideCompat、Umbra Patcher 优先、iPad 搜索状态修复、postinst/giveMeRoot 路径修复的代码均保留；验证：对关键符号与文件做 grep 清单检查并记录结果 <!-- comet-task:da85bf00-0641-4454-882d-0e7d217ef702 -->
+- [x] 2.4 确认合并关系与工作区状态：`git merge-base --is-ancestor upstream/main HEAD` 成功，冲突标记与意外文件为零；验证：命令退出码为 0，`git status` 仅包含本 change 的预期文件 <!-- comet-task:6c451cd0-551f-47fc-a220-b59f3c2eec3c -->
 
 ## Workflow follow-up
 
