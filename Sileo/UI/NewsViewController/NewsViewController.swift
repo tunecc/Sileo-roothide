@@ -351,9 +351,7 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout { // Collection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if currentSection(indexPath.section) != .packages { return }
-        guard let viewController = self.controller(indexPath: indexPath) else {
-            return
-        }
+        guard let viewController = self.controller(indexPath: indexPath) else { return }
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -405,9 +403,7 @@ extension NewsViewController { // 3D Touch
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView?.indexPathForItem(at: location) else { return nil }
         if currentSection(indexPath.section) != .packages { return nil }
-        guard let packageViewController = self.controller(indexPath: indexPath) else {
-            return nil
-        }
+        guard let packageViewController = self.controller(indexPath: indexPath) else { return nil }
         return packageViewController
     }
 
@@ -420,9 +416,7 @@ extension NewsViewController { // 3D Touch
 extension NewsViewController {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         if currentSection(indexPath.section) != .packages { return nil }
-        guard let packageViewController = self.controller(indexPath: indexPath) else {
-            return nil
-        }
+        guard let packageViewController = self.controller(indexPath: indexPath) else { return nil }
         let menuItems = packageViewController.actions()
         
         return UIContextMenuConfiguration(identifier: nil,

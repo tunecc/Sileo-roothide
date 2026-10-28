@@ -65,7 +65,7 @@ final class PrivateIdentifiers {
          Sec-CH-UA-Model: iPhone11,9
          */
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        let jb = Jailbreak.current.rawValue.split(separator: " ").first!.lowercased()
+        let jb = Jailbreak.current.rawValue.lowercased()
         let bootstrap = Jailbreak.bootstrap.rawValue.lowercased()
         #if targetEnvironment(macCatalyst)
         let platform = "macos"

@@ -28,10 +28,12 @@ enum Bootstrap: String, Codable {
             } else {
                 self = .electra
             }
-        case .unc0ver11:
-            self = .unc0ver
-        case .unc0ver12, .unc0ver13, .unc0ver14, .checkra1n12, .checkra1n13, .checkra1n14:
-            self = .elucubratus
+        case .unc0ver:
+            if ProcessInfo.processInfo.operatingSystemVersion.majorVersion == 11 {
+                self = .unc0ver
+            } else {
+                self = .elucubratus
+            }
         case .xina15:
             self = .xina
         default:

@@ -5246,7 +5246,7 @@
 					"$(PROJECT_DIR)/Deps/libzstd",
 					"$(PROJECT_DIR)/Deps/liblz4",
 				);
-				MARKETING_VERSION = "2.5.1-12";
+				MARKETING_VERSION = "2.5.1-14";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = "$(inherited) -lroothide $(PROJECT_DIR)/Deps/liblzma/liblzma.5.tbd $(PROJECT_DIR)/Deps/libzstd/libzstd.1.tbd";
@@ -5674,6 +5674,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
+				ENABLE_DEBUG_DYLIB = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -5700,7 +5701,7 @@
 					"$(PROJECT_DIR)/Deps/libzstd",
 					"$(PROJECT_DIR)/Deps/liblz4",
 				);
-				MARKETING_VERSION = "2.5.1-12";
+				MARKETING_VERSION = "2.5.1-14";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = "$(inherited) -lroothide $(PROJECT_DIR)/Deps/liblzma/liblzma.5.tbd $(PROJECT_DIR)/Deps/libzstd/libzstd.1.tbd";
@@ -5767,7 +5768,7 @@
 					"$(PROJECT_DIR)/Deps/libzstd",
 					"$(PROJECT_DIR)/Deps/liblz4",
 				);
-				MARKETING_VERSION = "2.5.1-12";
+				MARKETING_VERSION = "2.5.1-14";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = "$(inherited) -lroothide $(PROJECT_DIR)/Deps/liblzma/liblzma.5.tbd $(PROJECT_DIR)/Deps/libzstd/libzstd.1.tbd";

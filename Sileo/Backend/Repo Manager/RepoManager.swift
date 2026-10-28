@@ -957,7 +957,7 @@ final class RepoManager {
                 let releaseFile = cacheFile(named: "Release", for: repo)
                 if let info = releaseFile.aptContents,
                     let release = try? ControlFileParser.dictionary(controlFile: info, isReleaseFile: true).0,
-                    let repoName = release["origin"] {
+                    let repoName = release["label"] ?? release["origin"] {
                     repo.repoName = repoName
 //                    NSLog("SileoLog: _checkUpdatesInBackground \(repo.url) \(repo.repoName)")
                     let links = dataDetector.matches(
@@ -1956,7 +1956,7 @@ final class RepoManager {
         for source in rawSources.components(separatedBy: .newlines) {
             let parts = source.trimmingCharacters(in: .whitespaces).components(separatedBy: .whitespaces).filter({$0.isEmpty==false})
             
-            let uri = parts[0]
+            guard let uri = parts.first else { continue }
             
             guard let _ = URL(string: uri) else { continue }
             

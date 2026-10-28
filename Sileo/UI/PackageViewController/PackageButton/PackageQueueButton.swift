@@ -118,12 +118,12 @@ class PackageQueueButton: PackageButton {
             return false
         }
         
-        if queueFound == .uninstallations && package.fromStatusFile {
-            return false
-        }
-        
-        if queueFound == .uninstalldeps || queueFound == .uninstallations {
-            return true
+        if package.fromStatusFile {
+            if queueFound == .installdeps || queueFound == .uninstalldeps {
+                return true
+            } else {
+                return false
+            }
         }
         
         let queuedDownloadPackage = DownloadManager.shared.findDownloadPackage(package: package)

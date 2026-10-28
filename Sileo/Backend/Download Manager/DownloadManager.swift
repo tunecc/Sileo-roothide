@@ -98,15 +98,11 @@ final class DownloadManager {
     
     public var vars = TSyncVars()
     
-    public var viewController: DownloadsTableViewController
+    public lazy var viewController: DownloadsTableViewController = DownloadsTableViewController(nibName: "DownloadsTableViewController", bundle: nil)
     
     public var currentDownloads = 0
     public var maxParallelDownloads = 5
     public var currentDownloadSession:UInt32 = 0
-    
-    init() {
-        viewController = DownloadsTableViewController(nibName: "DownloadsTableViewController", bundle: nil)
-    }
     
     public func installingPackages() -> Int {
         self.vars.upgrades.count + self.vars.installations.count + self.vars.installdeps.count
@@ -564,38 +560,55 @@ final class DownloadManager {
         for p in self.vars.uninstalldeps.raw { NSLog("SileoLog: self.uninstalldeps: \(p.package.package)=\(p.package.version), \(p.package.local_deb ?? p.package.sourceRepo?.url)") }
     }
     
-    private func checkInstalled() {
-        let installedPackages = PackageListManager.shared.installedPackages.values
-        for package in installedPackages {
-            if package.eFlag == .reinstreq {
-                guard let newestPackage = PackageListManager.shared.newestPackage(identifier: package.package, repoContext: nil) else {
-                    continue
-                }
-                
-                if !checkRootHide(newestPackage) {
-                    continue
-                }
+    private func checkInstalled()
+    {
+        var reinstallPackages = [Package]()
+        var uninstallPackages = [Package]()
 
-                let downloadPackage = DownloadPackage(package: newestPackage)
-                
-                if !self.vars.installations.contains(downloadPackage) && !self.vars.uninstallations.contains(downloadPackage) {
-                    NSLog("SileoLog: reinstreq \(downloadPackage.package)")
-                    self.vars.installations.insert(downloadPackage)
-                    //manually resolve package here so that apt can be able to reinstall it
-                    DownloadManager.aptQueue.async {
-                        try? DependencyResolverAccelerator.shared.getDependencies(packages: [downloadPackage.package])
-                    }
-                }
+        let installedPackages = PackageListManager.shared.installedPackages.values
+        for package in installedPackages
+        {
+            if package.eFlag == .reinstreq {
+                reinstallPackages.append(package)
             } else if package.eFlag == .ok {
-                
-                let downloadPackage = DownloadPackage(package: package)
-                
-                if package.wantInfo == .deinstall || package.wantInfo == .purge || package.status == .halfconfigured || package.status == .unpacked || package.status == .halfinstalled {
-                    if !self.vars.installations.contains(downloadPackage) && !self.vars.uninstallations.contains(downloadPackage) {
-                        NSLog("SileoLog: wantInfo \(downloadPackage.package.package) = \(downloadPackage.package.wantInfo.rawValue)")
-                        self.vars.uninstallations.insert(downloadPackage)
+                if package.wantInfo == .deinstall || package.wantInfo == .purge {
+                    uninstallPackages.append(package)
+                } else if package.status == .halfconfigured || package.status == .unpacked || package.status == .halfinstalled {
+                    if package.essential == "yes" {
+                        reinstallPackages.append(package)
+                    } else {
+                        /* remove broken packages(status=unpacked) so that apt can correctly resolve the dependencies of the packages to be installed. */
+                        uninstallPackages.append(package)
                     }
                 }
+            }
+        }
+
+        for package in reinstallPackages {
+            guard let newestPackage = PackageListManager.shared.newestPackage(identifier: package.package, repoContext: nil) else {
+                uninstallPackages.append(package)
+                continue
+            }
+
+            if !checkRootHide(newestPackage) {
+                uninstallPackages.append(package)
+                continue
+            }
+
+            let downloadPackage = DownloadPackage(package: newestPackage)
+
+            if !self.vars.installations.contains(downloadPackage) && !self.vars.uninstallations.contains(downloadPackage) {
+                NSLog("SileoLog: wantInfo \(downloadPackage.package.package) = \(downloadPackage.package.wantInfo.rawValue)")
+                self.vars.installations.insert(downloadPackage)
+            }
+        }
+
+        for package in uninstallPackages
+        {
+            let downloadPackage = DownloadPackage(package: package)
+            if !self.vars.installations.contains(downloadPackage) && !self.vars.uninstallations.contains(downloadPackage) {
+                NSLog("SileoLog: wantInfo \(downloadPackage.package.package) = \(downloadPackage.package.wantInfo.rawValue)")
+                self.vars.uninstallations.insert(downloadPackage)
             }
         }
     }
@@ -641,7 +654,7 @@ final class DownloadManager {
             assert(queueRunning==false)
             
             do {
-                self.checkInstalled() /* remove packages(status=unpacked) first so that apt can correctly resolve the dependencies of the packages to be installed. */
+                self.checkInstalled()
                 try self.recheckTotalOps()
             } catch {
                 removeAllItems()
@@ -922,9 +935,11 @@ final class DownloadManager {
                 func showPatchAlert() {
                     NSLog("SileoLog: not updated for roothide: \(package.package) \(package.architecture)")
                     
+                    let IncompatibleRepo = ["apt.procurs.us","ellekit.space"].contains(package.sourceRepo?.url?.host)
+
                     let title = String(localizationKey: "Not Updated")
                     
-                    let msg = ["apt.procurs.us","ellekit.space"].contains(package.sourceRepo?.url?.host) ? String(localizationKey: "please contact @roothideDev to update it") : String(localizationKey: "\(package.package)(\(package.version))\n\nYou can contact the developer of this package to update it for roothide, or you can try to convert it via roothide Patcher.")
+                    let msg = IncompatibleRepo ? String(localizationKey: "please contact @roothideDev to update it") : String(localizationKey: "\(package.package)(\(package.version))\n\nYou can contact the developer of this package to update it for roothide, or you can try to convert it via roothide Patcher.")
                     
                     let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
                     
@@ -947,8 +962,7 @@ final class DownloadManager {
                             }
                         })
                     }
-
-                    if patcherReachable && ["apt.procurs.us","ellekit.space"].contains(package.sourceRepo?.url?.host)==false {
+                    if patcherReachable && !IncompatibleRepo {
                         alert.addAction(patchAction)
                     }
                     

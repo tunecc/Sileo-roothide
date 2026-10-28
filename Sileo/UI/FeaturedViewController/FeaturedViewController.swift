@@ -73,17 +73,23 @@ final class FeaturedViewController: SileoViewController, UIScrollViewDelegate, F
                                                                 preferredStyle: .alert)
                         self.present(alertController, animated: true, completion: nil)
                     }
+                    return
                 }
             }
             
             PackageListManager.shared.initWait()
             
             var foundBroken = false
-            for package in PackageListManager.shared.installedPackages.values where package.status == .halfconfigured {
-                foundBroken = true
+            var fixableStatus : [pkgstatus] = [.unpacked, .halfconfigured, .triggersawaited, .triggerspending];
+            for package in PackageListManager.shared.installedPackages.values {
+                if package.eFlag == .ok && fixableStatus.contains(package.status) {
+                    foundBroken = true
+                    break
+                }
             }
             
-            if (DpkgWrapper.dpkgInterrupted() || foundBroken) && !UserDefaults.standard.bool(forKey: "uicacheRequired") {
+            if (DpkgWrapper.dpkgInterrupted() || foundBroken) && !UserDefaults.standard.bool(forKey: "uicacheRequired")
+            {
                 DispatchQueue.main.sync {
                     let alertController = UIAlertController(title: String(localizationKey: "FixingDpkg.Title", type: .error),
                                                             message: String(localizationKey: "FixingDpkg.Body", type: .error),
@@ -94,6 +100,7 @@ final class FeaturedViewController: SileoViewController, UIScrollViewDelegate, F
                 DispatchQueue.global(qos: .default).async {
                     let (status, output, errorOutput) = spawnAsRoot(args: [CommandPath.dpkg, "--configure", "-a"])
                     PackageListManager.shared.reloadInstalled()
+                    DownloadManager.shared.reloadData(recheckPackages: true)
                     DispatchQueue.main.async {
                         self.dismiss(animated: true) {
                             if status != 0 {
@@ -116,6 +123,8 @@ final class FeaturedViewController: SileoViewController, UIScrollViewDelegate, F
                         }
                     }
                 }
+            } else {
+                DownloadManager.shared.reloadData(recheckPackages: true)
             }
         }
         #endif

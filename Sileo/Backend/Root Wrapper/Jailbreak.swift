@@ -15,64 +15,45 @@ enum Jailbreak: String, Codable {
     static let bootstrap = Bootstrap(jailbreak: current)
     
     // Coolstar
-    case electra = "Electra (iOS 11)"
-    case chimera = "Chimera (iOS 12)"
-    case odyssey = "Odyssey (iOS 13)"
-    case taurine = "Taurine (iOS 14)"
+    case electra = "Electra"
+    case chimera = "Chimera"
+    case odyssey = "Odyssey"
+    case taurine = "Taurine"
     
     // unc0ver
-    case unc0ver11 = "unc0ver (iOS 11)"
-    case unc0ver12 = "unc0ver (iOS 12)"
-    case unc0ver13 = "unc0ver (iOS 13)"
-    case unc0ver14 = "unc0ver (iOS 14)"
+    case unc0ver = "unc0ver"
     
     // checkra1n
-    case checkra1n12 = "checkra1n (iOS 12)"
-    case checkra1n13 = "checkra1n (iOS 13)"
-    case checkra1n14 = "checkra1n (iOS 14)"
+    case checkra1n = "checkra1n"
     
     // Odysseyra1n
-    case odysseyra1n12 = "Odysseyra1n (iOS 12)"
-    case odysseyra1n13 = "Odysseyra1n (iOS 13)"
-    case odysseyra1n14 = "Odysseyra1n (iOS 14)"
+    case odysseyra1n = "Odysseyra1n"
     
     // Palera1n
-    case palera1n_rootless15 = "palera1n Rootless (iOS 15)"
-    case palera1n_rootless16 = "palera1n Rootless (iOS 16)"
-    case palera1n_rootful15 = "palera1n Rootful (iOS 15)"
-    case palera1n_rootful16 = "palera1n Rootful (iOS 16)"
-    case palera1n17 = "palera1n (iPadOS 17)"
+    case palera1n_rootless = "palera1n Rootless"
+    case palera1n_rootful = "palera1n Rootful"
     
     // Xina
-    case xina15 = "XinaA15 (iOS 15)"
+    case xina15 = "XinaA15"
     
     // Fugu15
-    case fugu15 = "Fugu15 (iOS 15)"
+    case fugu15 = "Fugu15"
     
     // Bakera1n
-    case bakera1n_rootless15 = "bakera1n Rootless (iOS 15)"
-    case bakera1n_rootless16 = "bakera1n Rootless (iOS 16)"
-    case bakera1n_rootful15 = "bakera1n Rootful (iOS 15)"
-    case bakera1n_rootful16 = "bakera1n Rootful (iOS 16)"
-    case bakera1n17 = "bakera1n (iPadOS 17)"
+    case bakera1n_rootless = "bakera1n Rootless"
+    case bakera1n_rootful = "bakera1n Rootful"
     
     case mac = "macOS"
     case other = "Other"
     case simulator = "Simulator"
     
-    case dopamine15 = "Dopamine-roothide (iOS 15)"
-    case dopamine16 = "Dopamine-roothide (iOS 16)"
+    case dopamine = "Dopamine-roothide"
     
-    case BOOTSTRAP14 = "Bootstrap (iOS 14)"
-    case BOOTSTRAP15 = "Bootstrap (iOS 15)"
-    case BOOTSTRAP16 = "Bootstrap (iOS 16)"
-    case BOOTSTRAP17 = "Bootstrap (iOS 17)"
+    case BOOTSTRAP = "Bootstrap"
     
-    case palehide15 = "Palera1n-roothide (iOS 15)"
-    case palehide16 = "Palera1n-roothide (iOS 16)"
-    case palehide17 = "Palera1n-roothide (iOS 17)"
-    case palehide18 = "Palera1n-roothide (iOS 18)"
+    case palehide = "Palera1n-roothide"
     
+    case relaxin = "Relaxin"
     
     fileprivate static func arch() -> String {
         guard let archRaw = NXGetLocalArchInfo().pointee.name else {
@@ -81,7 +62,7 @@ enum Jailbreak: String, Codable {
         return String(cString: archRaw)
     }
     
-    static private let supported: Set<Jailbreak> = [.chimera, .odyssey, .taurine, .odysseyra1n12, .odysseyra1n13, .odysseyra1n14, .palera1n_rootful15, .palera1n_rootful16, .palera1n_rootless15, .palera1n_rootless16, .palera1n17, .fugu15, .dopamine15, .dopamine16]
+    static private let supported: Set<Jailbreak> = [.chimera, .odyssey, .taurine, .odysseyra1n, .palera1n_rootful, .palera1n_rootless, .fugu15, .dopamine, .dopamine, BOOTSTRAP, .relaxin]
     public var supportsUserspaceReboot: Bool {
         Self.supported.contains(self)
     }
@@ -100,51 +81,25 @@ enum Jailbreak: String, Codable {
         //check palehide first
         let palehide = URL(fileURLWithPath: jbroot("/.installed_palera1n"))
         if palehide.exists {
-            if #available(iOS 19.0, *) {
-                self = .other
-            } else if #available(iOS 18.0, *) {
-                self = .palehide18
-            } else if #available(iOS 17.0, *) {
-                self = .palehide17
-            } else if #available(iOS 16.0, *) {
-                self = .palehide16
-            } else if #available(iOS 15.0, *) {
-                self = .palehide15
-            } else  {
-                self = .other
-            }
+            self = .palehide
             return
         }
         
         let dopamine = URL(fileURLWithPath: jbroot("/.installed_dopamine"))
         if dopamine.exists {
-            if #available(iOS 17.0, *) {
-                self = .other
-            } else if #available(iOS 16.0, *) {
-               self = .dopamine16
-            } else if #available(iOS 15.0, *) {
-                self = .dopamine15
-            } else  {
-                self = .other
-            }
+            self = .dopamine
             return
         }
         
         let bootstrap = URL(fileURLWithPath: jbroot("/.thebootstrapped"))
         if bootstrap.exists {
-            if #available(iOS 17.0.1, *) {
-                self = .other
-            } else if #available(iOS 17.0, *) {
-                self = .BOOTSTRAP17
-            } else if #available(iOS 16.0, *) {
-                self = .BOOTSTRAP16
-            } else if #available(iOS 15.0, *) {
-                self = .BOOTSTRAP15
-            } else if #available(iOS 14.0, *) {
-                self = .BOOTSTRAP14
-            } else  {
-                self = .other
-            }
+            self = .BOOTSTRAP
+            return
+        }
+
+        let relaxin = URL(fileURLWithPath: jbroot("/.installed_relaxin"))
+        if relaxin.exists {
+            self = .relaxin
             return
         }
         

@@ -454,6 +454,15 @@ final class SourcesViewController: SileoViewController {
     }
     #endif
     
+    // 仅校验 URL 可解析且为 http/https；保留 fork 对自定义 suite/components 的支持
+    private func hasCompatibleSourceFormat(_ source: String, suite: String? = nil, components: [String]? = nil) -> Bool {
+        let parts = source.trimmingCharacters(in: .whitespaces).components(separatedBy: .whitespaces).filter { !$0.isEmpty }
+        guard let uri = parts.first, let url = URL(string: uri),
+              ["http", "https"].contains(url.scheme?.lowercased()),
+              url.host != nil else { return false }
+        return true
+    }
+
     func importRepos(fromURL url: URL) {
         let _tmpManager = RepoManager()
         
@@ -467,6 +476,7 @@ final class SourcesViewController: SileoViewController {
         
         var newRepos:[Repo] = []
         for repo in _tmpManager.repoList {
+            guard hasCompatibleSourceFormat(repo.rawURL, suite: repo.suite, components: repo.components) else { continue }
             if let url = URL(string: repo.rawURL) {
                 if let newRepo = RepoManager.shared.addDistRepo(url: url, suites: repo.suite, components: repo.components.joined(separator: " ")) {
                     newRepos.append(newRepo)
@@ -856,6 +866,7 @@ final class SourcesViewController: SileoViewController {
     }
     
     func presentAddClipBoardPrompt(sources: [String]) {
+        let sources = sources.filter { hasCompatibleSourceFormat($0) }
         if sources.isEmpty {
             // I'm not quite sure how this happens, but it does sooooo
             return self.presentAddSourceEntryField(url: nil)
@@ -971,6 +982,7 @@ final class SourcesViewController: SileoViewController {
     #endif
     
     func handleSourceAdd(sources: [String], bypassFlagCheck: Bool) {
+        let sources = sources.filter { hasCompatibleSourceFormat($0) }
 
         var newRepos: [Repo] = []
         for source in sources {
